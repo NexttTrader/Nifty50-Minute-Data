@@ -46,3 +46,17 @@ No further historical parameter/filter mining is permitted against Apr-Sep befor
 3. Apply the exact frozen H-M1 rule.
 4. Evaluate gross and net R, clustering, drawdown and uncertainty.
 5. Only after the holdout/forward gate consider a separate risk-geometry research branch.
+
+
+## Phase 35 — Lifecycle / Asymmetry
+H-M1 candidates in Jul-Sep validation show stronger 10-20 bar directional persistence and larger MFE with somewhat lower MAE than controls. The effect is not primarily an immediate first-3-bar momentum effect. A strong directional asymmetry was observed: the largest validation separation was in downward compression-release breakouts, especially following a bearish short-term trend. This is recorded as H-M2, a test hypothesis only.
+
+## Phase 36 — Cross-Instrument Transfer
+The frozen H-M1 sequence was applied to the 2015-2021 NIFTY 50 index 5-minute dataset as a transfer test. It showed a small positive 20-bar directional-persistence difference (+0.076 ATR) but no 1ATR/2R trading improvement; the day-cluster interval included zero. Therefore H-M1 should not be described as universal. The evidence currently points toward an instrument/regime-conditional phenomenon.
+
+## Current research interpretation
+The project is increasingly separating three questions:
+1. Does a market event predict direction/movement potential?
+2. Does it create a monetizable MFE/MAE profile?
+3. Can a realistic execution rule capture that profile after friction?
+H-M1 appears most interesting for question 1 and partly for question 2. Question 3 remains unresolved.
