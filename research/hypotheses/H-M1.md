@@ -1,29 +1,25 @@
-# H-M1 — Frozen Research Hypothesis
+# Phase 30–34 — H-M1 Robustness, Execution Geometry and Modelling Audit
 
-## Statement
-A causal compression-release breakout may have a different tradeability profile when a confirmed SALMA-B0 slope-state flip occurred 1-3 completed bars before the breakout.
+## Date
+2026-09-30
 
-## Frozen base event
-At the close of bar t:
-1. Close breaks the prior 10-bar high or low.
-2. Current bar range >= 1.25 x median range of the prior 10 bars.
-3. Mean range of the prior 5 bars / causal ATR14 <= 1.0.
+## Purpose
+H-M1 is frozen. These phases do not change the signal definition. They test whether the apparent relationship survives uncertainty, contract splits, event clustering, execution-friction diagnostics, time-to-target analysis, and independent modelling.
 
-## Frozen SALMA condition
-A confirmed SALMA-B0 flip occurred 1-3 completed bars before bar t.
+## 1. Canonical H-M1
+A causal compression-release breakout is defined by:
+- close breaks the prior 10-bar high/low;
+- current bar range >= 1.25 x median range of prior 10 bars;
+- prior-5 mean range / causal ATR14 <= 1.0;
+- entry next bar open;
+- initial risk 1 ATR14;
+- 20-bar same-session horizon;
+- stop-first if stop/target share a bar.
 
-## Execution benchmark
-- Entry: next bar open
-- Initial risk: 1 x ATR14 measured at event-bar close
-- Targets: 1.5R, 2R and 3R
-- Vertical barrier: 20 bars or session close
-- Same-bar stop/target ambiguity: stop-first
+H-M1 adds: a confirmed SALMA-B0 slope flip occurred 1–3 completed bars before the breakout.
 
-## Evidence so far
-Discovery Apr-Jun 2026: 76 candidate events; mean R +0.163 at the 2R benchmark; no-recent-flip control mean R -0.149.
-Validation Jul-Sep 2026: 72 candidate events; mean R +0.096; no-recent-flip control mean R -0.091; candidate MFE about 2.84 ATR; candidate MAE about 1.73 ATR.
-A nearby-definition robustness grid over 27 combinations preserved a positive candidate-vs-control delta in discovery and validation.
 
-## Status
-PROMISING, NOT VALIDATED.
-No further historical optimization is permitted before an unseen holdout or forward paper test.
+## New audit status
+Phase 30-34 did not alter H-M1. It found positive candidate-vs-control deltas in every contract and leave-one-contract-out test, but validation cluster intervals still include zero and the gross edge is friction-sensitive. H-M1 remains PROMISING, NOT VALIDATED.
+
+See research/reports/PHASE30_34_HM1_AUDIT.md and research/validation/H-M1_FORWARD_VALIDATION.md.
