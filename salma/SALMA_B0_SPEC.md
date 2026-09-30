@@ -21,7 +21,7 @@ Source: user-supplied RedK SALMA v3.0 Pine code.
 ## Pine semantic audit
 TradingView documents the optional biased argument of ta.stdev as defaulting to true, which is the population-style estimator. The research reconstruction therefore uses rolling population standard deviation (ddof=0). Earlier sample-standard-deviation exploratory artifacts are superseded.
 
-TradingView documents ta.wma as the built-in weighted moving average. The research implementation uses descending weights on older-to-newer observations, equivalent to the standard Pine WMA weighting.
+TradingView documents ta.wma as the built-in weighted moving average. The research implementation uses standard descending WMA weights.
 
 ## Signal policy
 Research signals are evaluated only after candle close. Intrabar state changes are not treated as confirmed trading events.
