@@ -1,23 +1,31 @@
 # Trading Memory
 
-## Facts
-- SALMA-B0 uses Close, Length 10, Smooth 3, Mult 0.30, SD Length 5.
-- Research uses close-confirmed SALMA state changes.
-- Current research data is Apr-Sep 2026 actual NIFTY monthly futures.
+## Exact SALMA audit
+The supplied SALMA code uses ta.stdev without an explicit biased argument. TradingView documents the default as biased=true, i.e. the population-style estimator. The canonical reconstruction therefore uses ddof=0. Earlier ddof=1 SALMA-specific artifacts are superseded.
+
+## Current facts
+- SALMA-B0: Close, length 10, smooth 3, mult 0.30, sd length 5.
+- Current futures dataset: 8,594 five-minute candles across actual Apr-Sep 2026 monthly contracts.
+- Exact SALMA-B0: 816 confirmed transitions.
+- H-M1 base-event universe: 513 official events.
+- Exact H-M1: 73 discovery candidates, 66 validation candidates.
 
 ## Negative findings
 - Raw green/red reversal is not validated.
-- Simple parameter tweaks did not establish a stable edge.
-- Simple sweep-to-MSS plus SALMA did not establish an edge.
-- Price/SALMA crossover did not establish an edge.
-- Static 2R outcome models did not show strong stable discrimination.
+- Simple SALMA parameter changes did not establish a stable edge.
+- Simple sweep/MSS + SALMA, price/SALMA crossovers, simple breakout + SALMA and static ML variants did not establish a robust trading edge.
 
-## Working model
-SALMA is treated primarily as a lagged state/transition descriptor.
+## Strongest hypotheses
+### H-M1
+Compression-release breakout + direction-aligned SALMA flip 1-3 completed bars earlier.
+Status: PROMISING, NOT VALIDATED.
 
-## Current hypothesis
-H-M1: recent SALMA transition plus causal compression-release breakout.
-Status: frozen, awaiting unseen/forward validation.
+### H-M6
+H-M1 + at least 2 of previous 3 completed bars direction-aligned SALMA clipping.
+Status: STRONG EXPLORATORY HYPOTHESIS, NOT VALIDATED.
 
-## Research discipline
-Do not turn a hypothesis into a rule because it looks good on a completed chart. Do not edit historical predictions after outcomes are known. Keep discovery, validation and holdout data separate.
+## Key conceptual insight
+The strongest current evidence is about movement persistence and risk geometry, not immediate directional prediction. H-M6 is currently the most SALMA-specific mechanism because it directly uses the volatility-clipping component.
+
+## Governance
+No in-sample optimization of H-M1/H-M6 before unseen or forward validation. Historical predictions are immutable. Discovery, validation, holdout and forward data remain separate.
