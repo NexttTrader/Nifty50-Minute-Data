@@ -29,3 +29,11 @@ The strongest current evidence is about movement persistence and risk geometry, 
 
 ## Governance
 No in-sample optimization of H-M1/H-M6 before unseen or forward validation. Historical predictions are immutable. Discovery, validation, holdout and forward data remain separate.
+
+
+## Phase 50-53 exact-formula correction
+The canonical SALMA reconstruction now uses population SD (ddof=0), matching TradingView's default biased=true semantics. Earlier ddof=1 SALMA-specific artifacts are superseded. Exact B0 = 816 confirmed transitions; exact H-M1 = 73 discovery / 66 validation candidates.
+
+## H-M6 / H-M8
+H-M6: H-M1 plus >=2 of prior 3 direction-aligned clipping bars. Validation n=54; R2 +0.240; R3 +0.225; ret20 +1.454 ATR.
+H-M8: continuous direction-aligned clipping-pressure sum over the prior 3 bars. Fixed Apr-Jun -> Jul-Sep logistic AUC improved 0.437 -> 0.609; Brier 0.214 -> 0.209. Expanding monthly walk-forward improved AUC in 3/4 months. H-M8 remains exploratory and unvalidated.
