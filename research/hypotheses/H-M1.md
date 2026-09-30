@@ -20,7 +20,7 @@ A direction-aligned confirmed SALMA-B0 flip occurred 1–3 completed bars before
 - Same-bar stop/target ambiguity: stop-first
 
 ## Exact-formula audit result
-Using the TradingView default population standard deviation, the canonical Apr-Sep base event universe is 513 events. Exact SALMA yields 73 discovery candidates and 66 validation candidates. Validation mean R2 is +0.060 versus -0.072 for non-H-M1 controls; validation 20-bar signed return is +1.000 versus +0.010 ATR.
+TradingView's default ta.stdev uses the population-style estimator. Under that exact SALMA reconstruction, the official Apr-Sep base-event universe remains 513 events, with 73 discovery H-M1 candidates and 66 validation candidates.
 
 ## Status
 PROMISING, NOT VALIDATED.
