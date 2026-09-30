@@ -60,3 +60,13 @@ The project is increasingly separating three questions:
 2. Does it create a monetizable MFE/MAE profile?
 3. Can a realistic execution rule capture that profile after friction?
 H-M1 appears most interesting for question 1 and partly for question 2. Question 3 remains unresolved.
+
+
+## Phase 40-44 — Deeper Research
+The latest exploratory ablation tested whether H-M1 is uniquely SALMA-specific. On the identical event universe, an unclipped double-WMA(10,3) recent flip also showed a positive validation 3R candidate-vs-control difference (+0.229R), compared with +0.312R for SALMA-B0. This means the current phenomenon may partly be a generic smoothed-state transition. SALMA nevertheless tends to flip earlier than the unclipped double-WMA (median ~1 five-minute bar among H-M1 candidates), so its timing may still matter.
+
+A completed 15-minute SALMA state aligned with the breakout direction produced stronger H-M1 candidate outcomes in the current 2026 sample, but similar conditioning occurred with generic 15-minute moving averages. Therefore the evidence currently favors higher-timeframe state alignment rather than a uniquely SALMA-specific mechanism.
+
+Session-time and expiry analyses produced heterogeneous results and are treated as exploratory only. No new live filter is promoted.
+
+New hypotheses H-M3, H-M4 and H-M5 are recorded but remain unvalidated. H-M1 remains frozen. The next decisive test must use genuinely unseen futures data or forward paper observations, comparing SALMA against the indicator-family controls under identical execution rules.
