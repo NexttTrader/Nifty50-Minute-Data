@@ -9,64 +9,33 @@
 SALMA-B0 green/red flips are not a validated standalone entry system.
 
 ### Major findings
-- SALMA parameter tuning around B0 did not reveal a stable edge.
-- SALMA is a lagged state-change descriptor; making it faster did not rescue the baseline.
-- Simple reversal, crossover, breakout, sweep/MSS, pullback and exit variants tested so far did not establish robust profitability.
-- Causal context models can predict movement potential somewhat better than they predict stop/target tradeability.
-- Nonstationarity and event clustering materially affect inference.
+- Parameter tuning around B0 did not reveal a stable edge.
+- SALMA flips add little independent 2R information after matching on causal price context.
+- SALMA is measurably lagged; making it faster did not improve baseline trade results.
+- Immediate post-flip returns show a small, unstable contrarian drift.
+- Signal-bar expansion, delayed pullback re-entry, breakout exits, price/SALMA cross, simple sweep-to-MSS, and conservative static ML variants did not establish robust profitability.
+- Causal features show some information about future movement potential, but much less stable information about risk-adjusted tradeability.
+- Discovery/validation feature distributions shift materially, so nonstationarity is a central concern.
 
-### Strongest current hypothesis
-H-M1: a causal compression-release breakout with a confirmed SALMA-B0 flip 1-3 completed bars earlier.
+### Exact SALMA formula audit
+The supplied Pine uses ta.stdev without an explicit biased flag. TradingView documents the default as biased=true, the population-style estimator. Earlier SALMA-specific exploratory artifacts that used sample SD (ddof=1) are superseded. Exact B0 reconstruction on the current futures dataset yields 816 confirmed transitions (410 up, 406 down).
 
-### New Phase 30-34 evidence
-- Candidate-vs-control mean-R difference remained positive for every Apr-Sep contract.
-- Leave-one-contract-out pooled deltas remained positive.
-- Validation day-cluster bootstrap still included zero, so uncertainty remains material.
-- The gross validation mean is only about +0.096R and is close to flat after a hypothetical 0.10R friction deduction.
-- H-M1's relative advantage is stronger over a 10-20 bar movement horizon than within the first 5 bars.
-- Movement-potential diagnostics show a large positive 20-bar signed-return difference in validation, but this is not an executable trade result because it ignores interim stops.
-- H-M1 candidates have a more favorable MFE/MAE opportunity surface than controls at moderate adverse-excursion limits.
-- Conservative sequential ML models show only weak discrimination overall, though simpler models frequently gain a small amount from the SALMA 1-3 bar feature.
+The frozen H-M1 price-event universe is 513 official events after excluding the July contract's June 30 warm-up rows. Exact SALMA produces 73 discovery H-M1 candidates and 66 validation candidates. The main 20-bar movement-persistence direction survives this formula correction, while the executable fixed 1ATR/2R edge remains modest and uncertain.
 
-### Interpretation
-The current evidence supports treating SALMA-B0 as a contextual timing/state variable, not as a standalone directional predictor.
+### H-M6 — SALMA clipping interaction
+H-M6 adds a simple SALMA-specific context to H-M1: at least 2 of the previous 3 completed bars have direction-aligned SALMA volatility clipping. Validation n=54, mean R2 +0.240, mean R3 +0.225, 20-bar signed return +1.454 ATR, MFE 2.990 ATR, MAE 1.497 ATR. Relative to non-H-M1 controls, deltas are +0.312R R2, +0.336R R3 and +1.443 ATR at 20 bars. Day-cluster validation intervals remain compatible with zero for the R2/R3 trading metrics, so this is not validated.
 
-H-M1 may identify a market state in which a compression breakout has a better chance of developing into sustained directional movement.
+Within H-M1 validation candidates, aligned clipping count was strongly stratified: 0 clips n=2 mean R2 -1.000; 1 clip n=10 -0.700; 2 clips n=22 +0.024; 3 clips n=32 +0.388. Discovery shows the same broad ordering. The >=2 threshold remains post-hoc and cannot be promoted before unseen/forward testing.
 
-### Research status
-H-M1: **PROMISING, NOT VALIDATED.**
+### Indicator-family interpretation
+Under the corrected SALMA formula, generic smoothers can also condition H-M1. Therefore SALMA's short-horizon state change is not proven unique. H-M6 remains more specifically tied to SALMA's volatility clipping.
 
-It is now frozen.
+### Cross-instrument transfer
+The same H-M1/H-M6 construction on long 2015-2021 NIFTY index data shows little/no fixed 1ATR/2R improvement and mixed annual movement effects. Therefore H-M6 is not a universal market law and may be instrument/regime specific.
 
-No further historical parameter/filter mining is permitted against Apr-Sep before an unseen holdout or forward test.
+### Current hypothesis status
+- H-M1: PROMISING, NOT VALIDATED.
+- H-M6: STRONG EXPLORATORY HYPOTHESIS, NOT VALIDATED.
 
-### Next gate
-1. Obtain actual Oct 2025-Mar 2026 monthly NIFTY futures 5-minute data if legitimately obtainable.
-2. Otherwise start forward paper validation on the next sessions.
-3. Apply the exact frozen H-M1 rule.
-4. Evaluate gross and net R, clustering, drawdown and uncertainty.
-5. Only after the holdout/forward gate consider a separate risk-geometry research branch.
-
-
-## Phase 35 — Lifecycle / Asymmetry
-H-M1 candidates in Jul-Sep validation show stronger 10-20 bar directional persistence and larger MFE with somewhat lower MAE than controls. The effect is not primarily an immediate first-3-bar momentum effect. A strong directional asymmetry was observed: the largest validation separation was in downward compression-release breakouts, especially following a bearish short-term trend. This is recorded as H-M2, a test hypothesis only.
-
-## Phase 36 — Cross-Instrument Transfer
-The frozen H-M1 sequence was applied to the 2015-2021 NIFTY 50 index 5-minute dataset as a transfer test. It showed a small positive 20-bar directional-persistence difference (+0.076 ATR) but no 1ATR/2R trading improvement; the day-cluster interval included zero. Therefore H-M1 should not be described as universal. The evidence currently points toward an instrument/regime-conditional phenomenon.
-
-## Current research interpretation
-The project is increasingly separating three questions:
-1. Does a market event predict direction/movement potential?
-2. Does it create a monetizable MFE/MAE profile?
-3. Can a realistic execution rule capture that profile after friction?
-H-M1 appears most interesting for question 1 and partly for question 2. Question 3 remains unresolved.
-
-
-## Phase 40-44 — Deeper Research
-The latest exploratory ablation tested whether H-M1 is uniquely SALMA-specific. On the identical event universe, an unclipped double-WMA(10,3) recent flip also showed a positive validation 3R candidate-vs-control difference (+0.229R), compared with +0.312R for SALMA-B0. This means the current phenomenon may partly be a generic smoothed-state transition. SALMA nevertheless tends to flip earlier than the unclipped double-WMA (median ~1 five-minute bar among H-M1 candidates), so its timing may still matter.
-
-A completed 15-minute SALMA state aligned with the breakout direction produced stronger H-M1 candidate outcomes in the current 2026 sample, but similar conditioning occurred with generic 15-minute moving averages. Therefore the evidence currently favors higher-timeframe state alignment rather than a uniquely SALMA-specific mechanism.
-
-Session-time and expiry analyses produced heterogeneous results and are treated as exploratory only. No new live filter is promoted.
-
-New hypotheses H-M3, H-M4 and H-M5 are recorded but remain unvalidated. H-M1 remains frozen. The next decisive test must use genuinely unseen futures data or forward paper observations, comparing SALMA against the indicator-family controls under identical execution rules.
+### Next scientific gate
+No further in-sample optimization against Apr-Sep. Test frozen H-M1 and H-M6 on genuinely unseen actual futures contracts or forward paper observations. The next research branch should evaluate risk geometry and causal event lifecycle without changing the signal definitions.
