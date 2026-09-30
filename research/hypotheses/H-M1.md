@@ -1,25 +1,28 @@
-# Phase 30–34 — H-M1 Robustness, Execution Geometry and Modelling Audit
+# H-M1 — Frozen Research Hypothesis
 
-## Date
-2026-09-30
+A causal compression-release breakout may have a different tradeability profile when a confirmed SALMA-B0 slope-state flip occurred 1–3 completed bars before the breakout.
 
-## Purpose
-H-M1 is frozen. These phases do not change the signal definition. They test whether the apparent relationship survives uncertainty, contract splits, event clustering, execution-friction diagnostics, time-to-target analysis, and independent modelling.
+## Frozen base event
+At the close of bar t:
+1. Close breaks the prior 10-bar high or low.
+2. Current bar range >= 1.25 x median range of the prior 10 bars.
+3. Mean range of the prior 5 completed bars / rolling-mean True Range(14) <= 1.0.
+4. A next same-session bar must exist for the execution benchmark.
 
-## 1. Canonical H-M1
-A causal compression-release breakout is defined by:
-- close breaks the prior 10-bar high/low;
-- current bar range >= 1.25 x median range of prior 10 bars;
-- prior-5 mean range / causal ATR14 <= 1.0;
-- entry next bar open;
-- initial risk 1 ATR14;
-- 20-bar same-session horizon;
-- stop-first if stop/target share a bar.
+## SALMA condition
+A direction-aligned confirmed SALMA-B0 flip occurred 1–3 completed bars before the breakout bar.
 
-H-M1 adds: a confirmed SALMA-B0 slope flip occurred 1–3 completed bars before the breakout.
+## Execution benchmark
+- Entry: next bar open
+- Initial risk: 1 x ATR benchmark (legacy research definition: rolling mean TR14)
+- Targets: 1.5R, 2R and 3R
+- Vertical barrier: 20 bars or session close
+- Same-bar stop/target ambiguity: stop-first
 
+## Exact-formula audit result
+Using the TradingView default population standard deviation, the canonical Apr-Sep base event universe is 513 events. Exact SALMA yields 73 discovery candidates and 66 validation candidates. Validation mean R2 is +0.060 versus -0.072 for non-H-M1 controls; validation 20-bar signed return is +1.000 versus +0.010 ATR.
 
-## New audit status
-Phase 30-34 did not alter H-M1. It found positive candidate-vs-control deltas in every contract and leave-one-contract-out test, but validation cluster intervals still include zero and the gross edge is friction-sensitive. H-M1 remains PROMISING, NOT VALIDATED.
+## Status
+PROMISING, NOT VALIDATED.
 
-See research/reports/PHASE30_34_HM1_AUDIT.md and research/validation/H-M1_FORWARD_VALIDATION.md.
+H-M1 is frozen. No further in-sample optimization is permitted before unseen/forward testing.
