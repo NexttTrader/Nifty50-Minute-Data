@@ -39,3 +39,7 @@ The same H-M1/H-M6 construction on long 2015-2021 NIFTY index data shows little/
 
 ### Next scientific gate
 No further in-sample optimization against Apr-Sep. Test frozen H-M1 and H-M6 on genuinely unseen actual futures contracts or forward paper observations. The next research branch should evaluate risk geometry and causal event lifecycle without changing the signal definitions.
+
+
+## Phase 50-53 — Exact Formula and SALMA Mechanism
+The SALMA reconstruction was corrected to population SD (ddof=0) because TradingView documents ta.stdev's default biased=true. Earlier ddof=1 SALMA-specific results are superseded. H-M1 survives the correction. H-M6 remains the strongest thresholded SALMA-specific hypothesis. A new continuous clipping-pressure feature (H-M8) improved a fixed discovery->validation 2R classifier AUC 0.437 -> 0.609 and improved expanding walk-forward AUC in 3/4 monthly tests; this is promising but not conclusive.
