@@ -37,3 +37,7 @@ The canonical SALMA reconstruction now uses population SD (ddof=0), matching Tra
 ## H-M6 / H-M8
 H-M6: H-M1 plus >=2 of prior 3 direction-aligned clipping bars. Validation n=54; R2 +0.240; R3 +0.225; ret20 +1.454 ATR.
 H-M8: continuous direction-aligned clipping-pressure sum over the prior 3 bars. Fixed Apr-Jun -> Jul-Sep logistic AUC improved 0.437 -> 0.609; Brier 0.214 -> 0.209. Expanding monthly walk-forward improved AUC in 3/4 months. H-M8 remains exploratory and unvalidated.
+
+
+## Phase 57-64
+Deep research reinforces that the strongest current SALMA mechanism is an interaction: a recent direction-aligned SALMA flip is useful mainly when recent direction-aligned volatility clipping is also present. This is recorded as H-M7. H-M6 is the thresholded operational form and H-M8 is the continuous clipping-pressure form. Multi-timeframe alignment and session context are secondary exploratory conditioning variables. No new live rule is promoted before unseen/forward testing.
