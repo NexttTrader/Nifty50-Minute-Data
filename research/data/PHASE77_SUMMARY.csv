@@ -1,0 +1,17 @@
+metric,value,notes
+fixed_index_events,4593,2015-2021 NIFTY index price-defined event universe
+exact_hm1_events,1184,exact SALMA-B0 aligned flip reproduces historical H-M1 timestamps
+hm6_events,1000,H-M1 plus >=2 prior 3 aligned clips
+hm6_ret20,0.202804,ATR-normalized 20-bar directional return
+hm1_not6_ret20,0.126522,ATR-normalized 20-bar directional return
+hm6_r2,-0.051354,mean 2R benchmark outcome
+hm1_not6_r2,0.037813,mean 2R benchmark outcome
+hm6_tf2,0.301,2R target-first rate
+hm1_not6_tf2,0.326087,2R target-first rate
+hm6_minus_hm1not6_ret20,0.076281,incremental movement point estimate
+hm6_minus_hm1not6_r2,-0.089167,incremental 2R point estimate
+pressure_spearman_ret20,-0.001816,within exact H-M1 historical transfer
+pressure_test_auc,0.482940,2015-2018 train to 2019-2021 test
+pressure_test_brier,0.220304,2015-2018 train to 2019-2021 test
+count_test_auc,0.491701,2015-2018 train to 2019-2021 test
+count_plus_pressure_auc,0.488981,2015-2018 train to 2019-2021 test
