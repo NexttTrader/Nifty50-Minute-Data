@@ -1,0 +1,42 @@
+name: assemble Phase 77 large artifacts
+
+on:
+  push:
+    paths:
+      - research/data/.phase77_exact_transfer_ready
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble complete transfer CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/phase77
+          cat research/data/.phase77_exact_transfer_parts/part_* > /tmp/phase77/full.b64
+          base64 -d /tmp/phase77/full.b64 > /tmp/phase77/full.csv.gz
+          gunzip -f /tmp/phase77/full.csv.gz
+          sha256sum /tmp/phase77/full.csv
+          cp /tmp/phase77/full.csv research/data/PHASE77_EXACT_INDEX_TRANSFER_EVENTS.csv
+
+      - name: Remove assembly parts
+        shell: bash
+        run: |
+          rm -rf research/data/.phase77_exact_transfer_parts
+          rm -f research/data/.phase77_exact_transfer_ready
+
+      - name: Commit complete artifact
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/data/PHASE77_EXACT_INDEX_TRANSFER_EVENTS.csv research/data/.phase77_exact_transfer_parts research/data/.phase77_exact_transfer_ready 2>/dev/null || true
+          git add -A research/data/PHASE77_EXACT_INDEX_TRANSFER_EVENTS.csv research/data/.phase77_exact_transfer_parts research/data/.phase77_exact_transfer_ready 2>/dev/null || true
+          git commit -m "research: finalize complete Phase 77 transfer artifact [skip ci]" || exit 0
+          git push
