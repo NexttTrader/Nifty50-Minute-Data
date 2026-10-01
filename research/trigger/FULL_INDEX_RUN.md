@@ -1,0 +1,1 @@
+Trigger file for the 2015-2024 full-index deep research run. No trading rule is changed by this branch.
