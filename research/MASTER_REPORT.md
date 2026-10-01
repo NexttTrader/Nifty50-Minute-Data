@@ -57,3 +57,9 @@ The SALMA reconstruction was corrected to population SD (ddof=0) because Trading
 
 ## Current interpretation
 The research is converging on a state-transition mechanism: compression/balance -> repeated directional pressure relative to a short volatility envelope -> smoothed-state transition -> range release -> sustained movement. The next decisive experiment is unseen/forward futures testing with H-M1/H-M6/H-M9 frozen and generic smoother controls.
+
+
+## Phase 65 — External holdout data-source audit (2026-10-01)
+A current data-source audit found a dedicated Upstox expired-derivatives route that is materially suitable for the missing actual-contract holdout: expired NIFTY futures can be resolved by expiry date, then queried at 5-minute candles; the documented expired-candle response includes OHLC, volume and open interest. The feature requires Upstox Plus and authentication. Exact retention of every Oct 2025-Mar 2026 NIFTY monthly contract has not been verified from this environment, so no holdout result has been generated and no hypothesis has been changed.
+
+The preferred next gate remains frozen unseen/forward validation of H-M1/H-M6/H-M9. No further in-sample tuning is permitted before that gate.
