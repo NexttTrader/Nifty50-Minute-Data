@@ -43,3 +43,17 @@ No further in-sample optimization against Apr-Sep. Test frozen H-M1 and H-M6 on 
 
 ## Phase 50-53 — Exact Formula and SALMA Mechanism
 The SALMA reconstruction was corrected to population SD (ddof=0) because TradingView documents ta.stdev's default biased=true. Earlier ddof=1 SALMA-specific results are superseded. H-M1 survives the correction. H-M6 remains the strongest thresholded SALMA-specific hypothesis. A new continuous clipping-pressure feature (H-M8) improved a fixed discovery->validation 2R classifier AUC 0.437 -> 0.609 and improved expanding walk-forward AUC in 3/4 monthly tests; this is promising but not conclusive.
+
+
+## Phase 55-60 — Deeper mechanism research
+- Exact B0 clipping is frequent: about 80.6% of usable Apr-Sep futures bars are outside the WMA5 ± 0.30 population-SD band.
+- SALMA is highly correlated with an unclipped double-WMA(10,3) (~0.9999); slope-state agrees ~91.2%. Thus SALMA's distinct contribution is mainly nonlinear clipping and small timing differences, not the entire smoothed trend state.
+- Exact H-M1 target hazard shows little separation in the first 5 bars, then a clearer 2R separation by 10-20 bars. This reinforces delayed expansion/persistence.
+- Within H-M1, aligned clipping count is strongly stratified: validation mean R2 is -0.700 for 1 clip, +0.024 for 2 clips, +0.388 for 3 clips (0-clip n=2). This is exploratory because of small cells and post-hoc discovery.
+- H-M8 continuous direction-aligned clipping pressure gives a small incremental improvement in the fixed H-M1 validation classifier (AUC ~0.611 to ~0.623 with the tested causal features), but the gain is modest.
+- H-M9, a specific sequence (SALMA flip exactly 2 bars before breakout + all three preceding bars directionally clipped), has futures validation n=10 and mean R2 +0.543. It is exploratory only.
+- The same H-M9-style sequence on the 2019-2021 NIFTY index test had n=117, mean R2 +0.385 vs +0.185 controls. This is supportive transfer evidence but not a substitute for futures validation.
+- A broad H-M6 risk-surface exploration remained positive in pooled validation across the tested stop/target grid, but contract-level heterogeneity and post-hoc exploration prevent any execution rule from being promoted.
+
+## Current interpretation
+The research is converging on a state-transition mechanism: compression/balance -> repeated directional pressure relative to a short volatility envelope -> smoothed-state transition -> range release -> sustained movement. The next decisive experiment is unseen/forward futures testing with H-M1/H-M6/H-M9 frozen and generic smoother controls.
