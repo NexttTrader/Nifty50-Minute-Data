@@ -1,0 +1,39 @@
+name: deep-index-research
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'scripts/deep_index_research.py'
+      - 'nifty50_candlestick_data.csv'
+      - '.github/workflows/deep-index-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install analysis dependencies
+        run: python -m pip install --upgrade pip pandas numpy
+
+      - name: Run deep research
+        run: python scripts/deep_index_research.py
+
+      - name: Upload research artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase37-deep-index-research
+          path: artifacts/deep_index_research/
+          retention-days: 30
