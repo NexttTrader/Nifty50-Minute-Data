@@ -1,24 +1,29 @@
 name: full-index-deep-research
 
 on:
-  issues:
+  pull_request:
     types: [opened]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   research:
-    if: startsWith(github.event.issue.title, '[RESEARCH] Run full index')
+    if: startsWith(github.event.pull_request.title, '[RESEARCH] Run full index') || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - run: python -m pip install --upgrade pip pandas numpy
+
       - run: python scripts/full_index_hm_research.py
+
       - uses: actions/upload-artifact@v4
         with:
           name: full-index-deep-research
