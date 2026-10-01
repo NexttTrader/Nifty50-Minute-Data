@@ -41,3 +41,12 @@ H-M8: continuous direction-aligned clipping-pressure sum over the prior 3 bars. 
 
 ## Phase 57-64
 Deep research reinforces that the strongest current SALMA mechanism is an interaction: a recent direction-aligned SALMA flip is useful mainly when recent direction-aligned volatility clipping is also present. This is recorded as H-M7. H-M6 is the thresholded operational form and H-M8 is the continuous clipping-pressure form. Multi-timeframe alignment and session context are secondary exploratory conditioning variables. No new live rule is promoted before unseen/forward testing.
+
+
+## Phase 55-60 discoveries
+- SALMA clipping is frequent (~80.6% of usable Apr-Sep futures bars), while SALMA is highly correlated with an unclipped double-WMA(10,3) (~0.9999) and slope-state agrees ~91.2%. This suggests most SALMA behavior is smoothed-state plus a nonlinear clipping deformation.
+- Exact H-M1 target-first hazard separates more clearly after 5 bars than immediately, suggesting delayed expansion/persistence rather than pure immediate momentum.
+- H-M6 and continuous H-M8 clipping pressure remain the strongest SALMA-specific mechanisms tested, but are unvalidated.
+- H-M9 (flip exactly 2 bars before breakout + aligned clipping on all prior 3 bars) is a small but strong exploratory sequence; futures validation n=10, mean R2 +0.543.
+- Cross-era NIFTY index 2019-2021 also showed positive H-M9 sequence behavior versus control, but this is not futures validation.
+- Risk-surface exploration indicates broad positive pooled H-M6 mean-R regions, but contract-level heterogeneity and post-hoc selection require unseen/forward testing.
