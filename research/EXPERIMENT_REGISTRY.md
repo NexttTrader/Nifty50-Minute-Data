@@ -85,3 +85,20 @@ Leave-one-contract-out:
 Thus the later-path effect is not driven by a single validation contract, although magnitude is heterogeneous and July contributes the largest point estimate.
 
 Governance: no signal or execution parameters changed. Next decisive gate remains unseen actual futures data.
+
+
+## Phase 81 — External holdout acquisition gate (2026-10-02)
+
+The research gate is now operationally specified for actual NIFTY monthly futures contracts expiring:
+- 2025-10-28
+- 2025-11-25
+- 2025-12-30
+- 2026-01-27
+- 2026-02-24
+- 2026-03-31
+
+NSE changed the NIFTY index-derivative expiry day to Tuesday for contracts expiring from September 1, 2025 onward. The Phase 81 target dates follow that rule.
+
+Upstox expired-instrument APIs were selected as the primary acquisition route because they resolve expired futures by expiry date and provide 5-minute expired historical candles with OHLC, volume and OI. The associated fetcher stores exact contract identity and validates the returned expiry before accepting data.
+
+No holdout data has been consumed and no hypothesis has changed.
