@@ -51,3 +51,10 @@ Current DhanHQ v2 documentation says intraday historical data is available at 1/
 The missing Oct 2025-Mar 2026 data remains an independent holdout opportunity. If obtained, it must be ingested without changing H-M1/H-M6/H-M9 definitions, and all predictions must be generated only from information available at each historical timestamp.
 
 No strategy conclusion is changed by this source audit alone.
+
+
+## Current secondary route: INDstocks
+
+A current INDstocks API documentation set also exposes expired derivative contract search and expired historical OHLCV endpoints. Expired contracts can be identified by stable trading symbol, and the expired historical endpoint accepts those symbols with start/end timestamps. This is retained as a secondary acquisition route if Upstox access is unavailable.
+
+For the present research gate, Upstox remains preferred because the documented expired-candle response explicitly includes open interest.
