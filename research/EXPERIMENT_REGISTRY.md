@@ -35,3 +35,34 @@ Key findings:
 - Generic smoother flip placebos do not establish SALMA uniqueness.
 
 Governance: no 2026 parameters changed; no new threshold promoted. Next decisive gate remains genuinely unseen actual NIFTY futures data.
+
+
+## Phase 78 — Geometry-first residual research (2026-10-02)
+
+Tested whether generic causal event geometry explains the 2R outcomes and whether the fixed H-M1 state / clipping context adds residual information.
+
+Key findings:
+- All-events geometry-only discovery->validation logistic AUC: 0.510.
+- Adding fixed H-M1: AUC 0.511.
+- Adding continuous clipping pressure: AUC 0.507.
+- Within H-M1 events, geometry-only AUC 0.576; geometry + pressure AUC 0.601.
+- Day-cluster bootstrap for the H-M1 pressure AUC gain: +0.026 observed, 95% interval approximately [-0.070,+0.134].
+- Brier calibration worsened by about +0.010 with pressure.
+
+Interpretation: generic event geometry does not explain the whole H-M1-conditioned effect, but the incremental pressure result is too uncertain to promote.
+
+## Phase 79 — Lifecycle and first-passage path analysis (2026-10-02)
+
+Evaluated the next 20 same-session bars after each frozen event on exact Apr-Sep futures.
+
+Validation H-M6 versus non-H-M1 control:
+- MFE3 +0.453 ATR; MFE5 +0.609; MFE10 +0.717; MFE20 +0.929.
+- MAE3 +0.043 ATR; MAE5 -0.131; MAE10 -0.240; MAE20 -0.510.
+- 20-bar close return +1.443 ATR.
+- +1R favorable-first before adverse 1R: 57.4% vs 45.0%, +12.4 pp.
+- +2R favorable-first: 37.0% vs 30.2%, +6.9 pp.
+- Day-cluster 95% intervals remain compatible with zero.
+
+Interpretation: H-M6's separation is increasingly a path-persistence / adverse-excursion property emerging after roughly 3-5 bars, not an immediate breakout effect.
+
+Governance: no signal or execution parameters changed; no live rule promoted. Next decisive gate remains genuinely unseen actual NIFTY futures data.
