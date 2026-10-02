@@ -63,3 +63,16 @@ The research is converging on a state-transition mechanism: compression/balance 
 A current data-source audit found a dedicated Upstox expired-derivatives route that is materially suitable for the missing actual-contract holdout: expired NIFTY futures can be resolved by expiry date, then queried at 5-minute candles; the documented expired-candle response includes OHLC, volume and open interest. The feature requires Upstox Plus and authentication. Exact retention of every Oct 2025-Mar 2026 NIFTY monthly contract has not been verified from this environment, so no holdout result has been generated and no hypothesis has been changed.
 
 The preferred next gate remains frozen unseen/forward validation of H-M1/H-M6/H-M9. No further in-sample tuning is permitted before that gate.
+
+
+## Phase 78 — Geometry-first residual research
+
+A geometry-only discovery->validation logistic model on the frozen Apr-Sep 2026 event universe produced AUC 0.510. Adding the fixed H-M1 state produced 0.511 and adding continuous clipping pressure produced 0.507. Within H-M1 candidates, geometry-only AUC was 0.576 versus 0.601 with pressure, but the day-cluster bootstrap AUC gain was only +0.026 with a 95% interval of approximately [-0.070,+0.134]. The residual pressure effect remains exploratory.
+
+## Phase 79 — Lifecycle and first-passage path analysis
+
+Path-level analysis on the same frozen 2026 futures events shows that H-M6's separation grows with time. In validation, H-M6 versus non-H-M1 control had MFE deltas of +0.453 ATR at 3 bars, +0.609 at 5, +0.717 at 10 and +0.929 at 20. MAE was similar at 3 bars but lower by -0.131, -0.240 and -0.510 ATR at 5, 10 and 20 bars. The 20-bar signed-return delta was +1.443 ATR.
+
+First-passage analysis showed +1R reached before adverse 1R on 57.4% of H-M6 events versus 45.0% of controls (+12.4 percentage points), with +2R first on 37.0% versus 30.2%. Day-cluster uncertainty remains wide and includes zero for these differences.
+
+The lifecycle evidence therefore reinforces the delayed-expansion interpretation but does not establish a validated trading edge. H-M6/H-M1/H-M8/H-M9 remain frozen.
