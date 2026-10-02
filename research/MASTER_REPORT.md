@@ -85,3 +85,10 @@ The Phase 79 lifecycle effect was checked contract-by-contract and with one vali
 Leave-one-contract-out results remained positive for 20-bar return delta (+1.767 ATR without August, +0.724 without July, +1.983 without September) and negative for 20-bar MAE delta (-0.551, -0.438, and -0.502 ATR respectively). This indicates that the lifecycle pattern is not solely a single-contract artifact, although its magnitude is heterogeneous.
 
 The result strengthens the movement/path interpretation but does not validate the executable trading rule. H-M1/H-M6/H-M8/H-M9 remain frozen.
+
+
+## Phase 81 — External holdout acquisition gate
+
+The next decisive experiment is now operationally defined around six actual NIFTY monthly futures contracts covering October 2025 through March 2026. NSE changed NIFTY index-derivative expiry to Tuesday for contracts expiring from September 1, 2025 onward; the expected monthly expiries are therefore 28-Oct-2025, 25-Nov-2025, 30-Dec-2025, 27-Jan-2026, 24-Feb-2026 and 31-Mar-2026.
+
+The repository now contains a reproducible Upstox expired-futures acquisition tool that resolves the exact contract by expiry, downloads 5-minute contract-specific candles in small windows, preserves OHLCV and OI, and writes a manifest. This phase is acquisition tooling only; no holdout outcome has been viewed or used.
