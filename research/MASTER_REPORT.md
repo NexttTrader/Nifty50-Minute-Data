@@ -76,3 +76,12 @@ Path-level analysis on the same frozen 2026 futures events shows that H-M6's sep
 First-passage analysis showed +1R reached before adverse 1R on 57.4% of H-M6 events versus 45.0% of controls (+12.4 percentage points), with +2R first on 37.0% versus 30.2%. Day-cluster uncertainty remains wide and includes zero for these differences.
 
 The lifecycle evidence therefore reinforces the delayed-expansion interpretation but does not establish a validated trading edge. H-M6/H-M1/H-M8/H-M9 remain frozen.
+
+
+## Phase 80 — Contract stability and leave-one-out lifecycle
+
+The Phase 79 lifecycle effect was checked contract-by-contract and with one validation contract removed at a time. H-M6's 20-bar signed-return delta versus non-H-M1 controls was positive in July (+3.310 ATR), August (+0.426 ATR), and September (+0.979 ATR). The 20-bar MAE delta was negative in all three contracts (-0.501, -0.364, and -0.500 ATR respectively).
+
+Leave-one-contract-out results remained positive for 20-bar return delta (+1.767 ATR without August, +0.724 without July, +1.983 without September) and negative for 20-bar MAE delta (-0.551, -0.438, and -0.502 ATR respectively). This indicates that the lifecycle pattern is not solely a single-contract artifact, although its magnitude is heterogeneous.
+
+The result strengthens the movement/path interpretation but does not validate the executable trading rule. H-M1/H-M6/H-M8/H-M9 remain frozen.
