@@ -66,3 +66,22 @@ Validation H-M6 versus non-H-M1 control:
 Interpretation: H-M6's separation is increasingly a path-persistence / adverse-excursion property emerging after roughly 3-5 bars, not an immediate breakout effect.
 
 Governance: no signal or execution parameters changed; no live rule promoted. Next decisive gate remains genuinely unseen actual NIFTY futures data.
+
+
+## Phase 80 — Contract stability and leave-one-out lifecycle (2026-10-02)
+
+Tested whether the Phase 79 lifecycle effect was concentrated in one 2026 validation contract.
+
+Validation H-M6 vs non-H-M1 control:
+- July: MFE20 +2.676 ATR, MAE20 -0.501 ATR, ret20 +3.310 ATR.
+- August: MFE20 -0.289 ATR, MAE20 -0.364 ATR, ret20 +0.426 ATR.
+- September: MFE20 +0.709 ATR, MAE20 -0.500 ATR, ret20 +0.979 ATR.
+
+Leave-one-contract-out:
+- Remove August: ret20 delta +1.767 ATR, MAE20 delta -0.551.
+- Remove July: ret20 delta +0.724 ATR, MAE20 delta -0.438.
+- Remove September: ret20 delta +1.983 ATR, MAE20 delta -0.502.
+
+Thus the later-path effect is not driven by a single validation contract, although magnitude is heterogeneous and July contributes the largest point estimate.
+
+Governance: no signal or execution parameters changed. Next decisive gate remains unseen actual futures data.
