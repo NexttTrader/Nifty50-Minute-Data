@@ -1,0 +1,3 @@
+comparison,observed_difference,ci_low_95,ci_high_95,bootstrap_p_le_zero,n_days,n_events
+HM1 geometry + pressure vs HM1 geometry,0.025755879059350506,-0.07010642135642148,0.13393142097264435,0.2783,37,66
+HM1 geometry + pressure vs HM1 geometry (Brier change),0.010127083549262117,-0.01921133614314983,0.04560656315707914,0.2822,37,66
