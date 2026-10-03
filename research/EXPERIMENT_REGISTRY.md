@@ -201,3 +201,12 @@ The forward workflow now persists:
 - a capture manifest and SHA-256 of the raw file.
 
 The workflow runs on weekdays after the market session through the October contract expiry and automatically commits its artifacts to main.
+
+
+## Phase 82 — Predeclared delayed-horizon movement test (2026-10-03)
+
+Frozen H-M6 was evaluated at fixed 1/3/5/10/20-bar same-session horizons. Validation mean-return deltas versus non-H-M1 control were +0.207, +0.377, +0.636, +0.962 and +1.712 ATR. The 20-bar day-cluster bootstrap 95% interval was [+0.348,+3.392] ATR.
+
+Time-of-day and direction adjustment preserved positive H-M6 coefficients at 5/10/20 bars (+0.683/+0.982/+1.681 ATR). Ten-percent trimming and medians also remained positive at 10/20 bars.
+
+Governance: no signal, threshold, stop, target or holding-period rule changed. The result is a movement-persistence diagnostic, not a validated trading rule.
