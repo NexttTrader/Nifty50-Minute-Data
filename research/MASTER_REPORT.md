@@ -152,3 +152,14 @@ A scheduled GitHub Actions pipeline now captures the active October 2026 NIFTY f
 The first automated prospective capture of NIFTY26OCTFUT (scripcode 48704, expiry 27-Oct-2026) produced 79 five-minute bars for the first captured session and zero frozen H-M1 signals. No outcome inference is made from this checkpoint.
 
 The forward pipeline is now operational and preserves raw bars, immutable signal records, separate mature outcomes, and a reproducible manifest. No parameter is changed from the frozen research definitions.
+
+
+## Phase 82 — Predeclared delayed-horizon movement test (2026-10-03)
+
+A fixed-horizon, same-session analysis evaluated the frozen H-M6 signal at 1, 3, 5, 10 and 20 bars from next-bar execution, without selecting a holding period after seeing outcomes.
+
+Validation H-M6 minus non-H-M1 control mean return deltas were +0.207, +0.377, +0.636, +0.962 and +1.712 ATR at 1, 3, 5, 10 and 20 bars respectively. At 20 bars, the H-M6 median return was +0.453 ATR and the 10%-trimmed mean was +0.996 ATR versus -0.023 ATR for the control.
+
+Day-cluster bootstrap intervals were wide early and more favorable late; the 20-bar difference was +1.712 ATR with a 95% cluster interval of [+0.348,+3.392]. A fixed time-of-day-bin plus breakout-direction regression remained positive at 5, 10 and 20 bars, with H-M6 coefficients +0.683, +0.982 and +1.681 ATR.
+
+Interpretation: the strongest recurring property of H-M6 is delayed favorable path persistence rather than immediate breakout momentum. This remains exploratory; later-horizon sample sizes are smaller because the analysis requires complete same-session horizons.
