@@ -102,3 +102,52 @@ NSE changed the NIFTY index-derivative expiry day to Tuesday for contracts expir
 Upstox expired-instrument APIs were selected as the primary acquisition route because they resolve expired futures by expiry date and provide 5-minute expired historical candles with OHLC, volume and OI. The associated fetcher stores exact contract identity and validates the returned expiry before accepting data.
 
 No holdout data has been consumed and no hypothesis has changed.
+
+
+## Phase 82 — Independent secondary futures holdout challenge (2026-10-03)
+
+A public secondary archive for NIFTY26JANFUT was evaluated using the frozen H-M1/H-M6/H-M9/H-M12 definitions.
+
+Data:
+- 4,125 five-minute bars
+- 55 complete 75-bar sessions
+- 2025-10-29 through 2026-01-16
+- 124 frozen base events
+- H-M1 n=26
+- H-M6 n=24
+- H-M9 n=4
+- H-M12 n=15
+
+Results versus the frozen base-event control:
+- H-M1 20-bar return -0.835 ATR delta; R2 delta -0.410R.
+- H-M6 20-bar return -0.757 ATR delta; R2 delta -0.338R.
+- H-M6 2R target-first 25.0% vs control 35.7%.
+- Day-cluster intervals include zero but point estimates are materially negative.
+
+This is classified as a credible secondary external holdout challenge after a Phase 85 daily cross-source price audit. It is not final broker-independent validation because the original source's Zerodha account/pull was not independently authenticated.
+
+## Phase 83 — External pressure diagnostic (2026-10-03)
+
+Within the 26 external H-M1 events:
+- clipping pressure vs ret20 Spearman +0.704;
+- pressure vs MFE20 +0.785;
+- pressure vs MAE20 +0.760;
+- pressure-only 2R AUC 0.392.
+
+Interpretation: pressure behaves like movement-intensity information, increasing both favorable and adverse excursion, rather than monotonic fixed-2R tradeability.
+
+## Phase 84 — External regime-shift diagnosis (2026-10-03)
+
+Compared with 2026 validation H-M1 events, the external January H-M1 events show much larger pre-event directional displacement:
+- mean prior-5-bar return +2.456 ATR vs +0.326;
+- mean prior-20-bar return +1.684 ATR vs +0.071;
+- event range/ATR mean 1.452 vs 1.741;
+- mean clipping pressure 0.844 vs 0.925.
+
+The January sequence therefore often fires after a more extended prior move and a smaller event shock. This is an explanatory regime diagnosis, not a new filter.
+
+## Phase 85 — External price provenance audit (2026-10-03)
+
+Five January NIFTY26JANFUT sessions were independently cross-checked against the AvilPage NSE daily futures archive. Open, high, low and the final 5-minute price matched exactly on all five sampled dates. Intraday volume was directionally consistent after converting the daily lot volume by the 65-unit NIFTY lot size. Intraday OI does not exactly match daily end-of-day OI and remains advisory.
+
+The Jan archive is therefore retained as a credible secondary external price holdout, not as a fully broker-authenticated source.
