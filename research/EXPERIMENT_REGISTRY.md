@@ -160,3 +160,22 @@ A scheduled GitHub Actions pipeline is now operational for the active October 20
 The pipeline is bounded to the October contract expiring 2026-10-27 and does not roll silently to another contract. H-M13 is recorded only as a future-only research hypothesis and is not used as a trading decision.
 
 No forward outcome is used to alter any prior signal.
+
+
+## Phase 86 — Prior-extension interaction replication (2026-10-03)
+
+Replicated the January external failure mode in the older 2015-2021 NIFTY index and compared it with the 2026 futures validation sample.
+
+- 2015-2021 H-M1 prior-5 displacement terciles: low R2 +0.060 / ret20 +0.356; mid -0.097 / +0.213; high -0.062 / +0.011.
+- 2026 validation H-M1: low +0.062 / +0.271; mid -0.358 / +0.850; high +0.476 / +1.880.
+- January external H-M1 had mean prior-5 displacement +2.456 ATR and negative subsequent outcomes.
+
+Conclusion: prior extension alone is not a universal filter. Any future-only interaction must include event-shock/release context.
+
+## H-M13 — Future-only prior-extension × event-shock interaction
+
+Created as a post-hoc future-only hypothesis. H-M13 is not evaluated on the January holdout and is not used as a trading decision in Phase 87.
+
+## Phase 87 — Prospective October 2026 forward capture
+
+A scheduled capture pipeline is active for NIFTY26OCTFUT through its 2026-10-27 expiry. It saves raw 5-minute OHLCV, immutable H-M1/H-M6/H-M9 signal rows, and mature outcomes as separate Git artifacts.
