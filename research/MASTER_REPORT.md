@@ -145,3 +145,10 @@ Prior directional extension was replicated as a diagnostic across the older NIFT
 ## Phase 87 — Prospective October 2026 forward capture
 
 A scheduled GitHub Actions pipeline now captures the active October 2026 NIFTY futures contract using the public NSE/OpenChart-compatible charting endpoint. It records frozen H-M1/H-M6/H-M9 signals without using future outcomes, and stores outcomes separately only after they mature. H-M13 is deliberately excluded from trading decisions until its functional form is formally frozen.
+
+
+## Phase 87 — First prospective observation
+
+The first automated prospective capture of NIFTY26OCTFUT (scripcode 48704, expiry 27-Oct-2026) produced 79 five-minute bars for the first captured session and zero frozen H-M1 signals. No outcome inference is made from this checkpoint.
+
+The forward pipeline is now operational and preserves raw bars, immutable signal records, separate mature outcomes, and a reproducible manifest. No parameter is changed from the frozen research definitions.
