@@ -127,3 +127,12 @@ The research has now passed the useful in-sample signal-mining boundary. The ext
 This is a regime-sensitive research result, not a validated universal strategy.
 
 The next decisive evidence remains another genuinely unseen contract-level 5-minute futures dataset. No parameter changes are permitted until such data is available.
+
+
+## Phase 87 — Prospective October 2026 forward capture
+
+A scheduled, credential-free forward-validation pipeline has been added for the active October 2026 NIFTY futures contract. Current public market sources identify the October contract as expiring 27-Oct-2026. citeturn897861search0turn897861search4
+
+The pipeline refreshes contract-specific 5-minute OHLCV after each weekday session, records frozen H-M1/H-M6/H-M9 signals using only event-time information, and stores mature outcomes separately. It is bounded to the October contract and does not silently roll to November.
+
+The forward phase is observational and does not change any frozen research rule. H-M13 remains future-only and is not used for decisions.
