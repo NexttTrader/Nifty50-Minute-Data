@@ -179,3 +179,25 @@ Created as a post-hoc future-only hypothesis. H-M13 is not evaluated on the Janu
 ## Phase 87 — Prospective October 2026 forward capture
 
 A scheduled capture pipeline is active for NIFTY26OCTFUT through its 2026-10-27 expiry. It saves raw 5-minute OHLCV, immutable H-M1/H-M6/H-M9 signal rows, and mature outcomes as separate Git artifacts.
+
+
+## Phase 87 — First prospective observation (2026-10-03)
+
+The automated forward pipeline captured the active NIFTY26OCTFUT contract:
+- scripcode 48704
+- expiry 2026-10-27
+- 79 five-minute bars from the first captured session
+- 0 frozen H-M1 signals
+- 0 mature outcomes
+
+This is a data-pipeline checkpoint only; no performance inference is made.
+
+## Phase 87 governance
+
+The forward workflow now persists:
+- raw contract-specific 5-minute OHLCV;
+- immutable frozen H-M1/H-M6/H-M9 signal rows;
+- mature outcome rows stored separately;
+- a capture manifest and SHA-256 of the raw file.
+
+The workflow runs on weekdays after the market session through the October contract expiry and automatically commits its artifacts to main.
