@@ -223,3 +223,16 @@ Key governance result:
 - H-M9 endpoints remain uncertain because n=10.
 
 No hypothesis or execution parameter changed. The surviving evidence is movement persistence, not a validated fixed-2R trading edge.
+
+
+## Phase 88 — Event independence and clustering robustness (2026-10-03)
+
+Audited dependence in the frozen 2026 validation event sample.
+
+- H-M6 and control event spacing is similar; H-M6 is clustered but not uniquely denser.
+- Same-session cooldown de-overlap retained positive H-M6 minus control 20-bar return deltas of +1.407 ATR at 5 bars, +1.445 ATR at 10, +1.350 ATR at 20, and +1.016 ATR at 30.
+- At the key 20-bar cooldown, day-block bootstrap CI was approximately [-0.154,+3.125] ATR, P(delta<=0) ≈ 0.043.
+- Equal-day weighting without thinning gave +1.463 ATR mean daily delta across 33 common days, with 66.7% positive days.
+
+Conclusion: the 2026 movement-persistence point estimate survives moderate event de-overlapping, but strict episode-level independence produces substantially wider uncertainty. No hypothesis or execution parameter changed.
+
