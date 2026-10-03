@@ -300,9 +300,16 @@ def main():
             keys = set(old_out["signal_timestamp"].astype(str) + "|" + old_out["trading_symbol"].astype(str))
             mature["_key"] = mature["signal_timestamp"].astype(str) + "|" + mature["trading_symbol"].astype(str)
             mature = mature[~mature["_key"].isin(keys)].drop(columns=["_key"])
-        if not mature.empty:
-            out = pd.concat([old_out, mature], ignore_index=True) if not old_out.empty else mature
-            out.sort_values(["signal_timestamp","trading_symbol"]).to_csv(OUTCOME_PATH, index=False)
+    if not mature.empty:
+        outcome = pd.concat([old_out, mature], ignore_index=True) if not old_out.empty else mature
+        outcome.sort_values(["signal_timestamp","trading_symbol"]).to_csv(OUTCOME_PATH, index=False)
+    elif not old_out.empty:
+        old_out.sort_values(["signal_timestamp","trading_symbol"]).to_csv(OUTCOME_PATH, index=False)
+    else:
+        pd.DataFrame(columns=[
+            "signal_timestamp","trading_symbol","bars_available","mfe20","mae20",
+            "r1_first_bars","r1_5_first_bars","r2_first_bars","r3_first_bars","mature"
+        ]).to_csv(OUTCOME_PATH, index=False)
 
     manifest = pd.DataFrame([{
         "provider":"NSE charting API via OpenChart-compatible endpoint",
