@@ -1,0 +1,8 @@
+dataset,segment,n,R2_mean,R3_mean,ret20_mean,notes
+NIFTY_index_2015_2021,low_priorret5,393,0.059740,0.116168,0.356050,tercile within exact H-M1
+NIFTY_index_2015_2021,mid_priorret5,394,-0.096885,-0.015243,0.213123,tercile within exact H-M1
+NIFTY_index_2015_2021,high_priorret5,395,-0.062178,-0.094773,0.011110,tercile within exact H-M1
+NIFTY_futures_2026_validation,low_priorret5,22,0.062011,-0.028899,0.270977,tercile within H-M1 validation
+NIFTY_futures_2026_validation,mid_priorret5,22,-0.358409,-0.404999,0.849687,tercile within H-M1 validation
+NIFTY_futures_2026_validation,high_priorret5,22,0.475736,0.621870,1.879651,tercile within H-M1 validation
+NIFTY26JANFUT_external,H-M1_all,26,-0.138000,-0.087000,-0.334000,mean values from external holdout summary
