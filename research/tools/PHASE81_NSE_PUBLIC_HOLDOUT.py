@@ -1,14 +1,10 @@
-#!/usr/bin/env python3
-"""Download contract-specific NIFTY futures 5-minute history from NSE's public charting API.
+"""Download contract-specific NIFTY futures 5-minute history from NSE public charting using archived exchange tokens.
 
-This is the credential-free Phase 81 acquisition path. It uses the same NSE
-charting endpoints documented by the open-source OpenChart client:
-  POST /v1/exchanges/symbolsDynamic
-  POST /v1/charts/symbolHistoricalData
-
-It stores only contract OHLCV. Open interest is not assumed because the public
-charting response exposes OHLCV in OpenChart's processing layer.
+The exchange-token map is frozen for this acquisition and is independently documented
+in public instrument archives. No current symbol search is required, because NSE's
+public charting search no longer returns older expired symbols.
 """
+
 
 from __future__ import annotations
 
@@ -26,12 +22,12 @@ SEARCH = f"{BASE}/v1/exchanges/symbolsDynamic"
 HIST = f"{BASE}/v1/charts/symbolHistoricalData"
 
 TARGETS = {
-    "NIFTY25OCTFUT": "2025-10-28",
-    "NIFTY25NOVFUT": "2025-11-25",
-    "NIFTY25DECFUT": "2025-12-30",
-    "NIFTY26JANFUT": "2026-01-27",
-    "NIFTY26FEBFUT": "2026-02-24",
-    "NIFTY26MARFUT": "2026-03-30",
+    "NIFTY25OCTFUT": {"expiry": "2025-10-28", "scripcode": 52168},
+    "NIFTY25NOVFUT": {"expiry": "2025-11-25", "scripcode": 37054},
+    "NIFTY25DECFUT": {"expiry": "2025-12-30", "scripcode": 49543},
+    "NIFTY26JANFUT": {"expiry": "2026-01-27", "scripcode": 49229},
+    "NIFTY26FEBFUT": {"expiry": "2026-02-24", "scripcode": 59182},
+    "NIFTY26MARFUT": {"expiry": "2026-03-30", "scripcode": 51714},
 }
 
 HEADERS = {
@@ -106,9 +102,10 @@ def main():
     combined = []
     manifest = []
 
-    for symbol, expiry_text in TARGETS.items():
+    for symbol, cfg in TARGETS.items():
+        expiry_text = cfg["expiry"]
         expiry = datetime.fromisoformat(expiry_text).replace(tzinfo=timezone.utc)
-        info = search_symbol(session, symbol)
+        info = {"scripcode": cfg["scripcode"], "symbol": symbol, "type": "Futures"}
 
         rows = []
         start = expiry - timedelta(days=120)
