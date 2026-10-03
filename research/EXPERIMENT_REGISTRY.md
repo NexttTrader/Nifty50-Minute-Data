@@ -151,3 +151,12 @@ The January sequence therefore often fires after a more extended prior move and 
 Five January NIFTY26JANFUT sessions were independently cross-checked against the AvilPage NSE daily futures archive. Open, high, low and the final 5-minute price matched exactly on all five sampled dates. Intraday volume was directionally consistent after converting the daily lot volume by the 65-unit NIFTY lot size. Intraday OI does not exactly match daily end-of-day OI and remains advisory.
 
 The Jan archive is therefore retained as a credible secondary external price holdout, not as a fully broker-authenticated source.
+
+
+## Phase 87 — Prospective October 2026 forward capture (2026-10-03)
+
+A scheduled GitHub Actions pipeline is now operational for the active October 2026 NIFTY futures contract. It captures contract-specific 5-minute OHLCV after each weekday session, records frozen H-M1/H-M6/H-M9 signals immutably, and stores later outcomes separately after maturation.
+
+The pipeline is bounded to the October contract expiring 2026-10-27 and does not roll silently to another contract. H-M13 is recorded only as a future-only research hypothesis and is not used as a trading decision.
+
+No forward outcome is used to alter any prior signal.
