@@ -35,7 +35,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research/data/forward
-          git add research/tools/PHASE87_FORWARD_CAPTURE.py
-          git add research/triggers/PHASE87_RUN.txt
           git commit -m "data: save Phase 87 forward NIFTY futures capture [skip ci]" || exit 0
-          git push
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
