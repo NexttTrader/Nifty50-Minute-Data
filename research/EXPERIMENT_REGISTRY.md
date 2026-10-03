@@ -210,3 +210,16 @@ Frozen H-M6 was evaluated at fixed 1/3/5/10/20-bar same-session horizons. Valida
 Time-of-day and direction adjustment preserved positive H-M6 coefficients at 5/10/20 bars (+0.683/+0.982/+1.681 ATR). Ten-percent trimming and medians also remained positive at 10/20 bars.
 
 Governance: no signal, threshold, stop, target or holding-period rule changed. The result is a movement-persistence diagnostic, not a validated trading rule.
+
+
+## Phase 83 — Multiple-testing audit (2026-10-03)
+
+Audited H-M1/H-M6/H-M9 across 2R and 20-bar movement endpoints as one six-comparison family using day-cluster bootstrap probabilities and Holm adjustment.
+
+Key governance result:
+- H-M6 ret20 raw probability ~0.005; Holm-adjusted ~0.029.
+- H-M6 2R raw ~0.058; adjusted ~0.230.
+- H-M1 ret20 raw ~0.028; adjusted ~0.142.
+- H-M9 endpoints remain uncertain because n=10.
+
+No hypothesis or execution parameter changed. The surviving evidence is movement persistence, not a validated fixed-2R trading edge.
