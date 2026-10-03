@@ -41,7 +41,7 @@ The independent NSE daily file reports traded volume in contract lots. Using the
 - 2026-01-12: 6,726,200 vs 7,919,145 (84.9%)
 - 2026-01-13: 5,527,405 vs 5,686,330 (97.2%)
 - 2026-01-14: 4,450,875 vs 4,592,965 (96.9%)
-- 2026-01-16: 5,836,025 vs 6,014, - equivalent units (97.0%)
+- 2026-01-16: 5,836,025 vs 6,013,995 equivalent units (97.0%)
 
 The difference is not treated as a data-integrity failure because daily and intraday providers can apply different volume accounting conventions; OHLC is an exact match.
 
