@@ -4,32 +4,44 @@ on:
   push:
     paths:
       - research/triggers/PHASE81_RUN.txt
-      - research/tools/PHASE81_NSE_PUBLIC_HOLDOUT.py
 
 permissions:
   contents: write
 
 jobs:
   acquire:
-    if: hashFiles('research/triggers/PHASE81_RUN.txt') != ''
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
+      - id: gate
+        name: Check acquisition trigger
+        shell: bash
+        run: |
+          if [ -f research/triggers/PHASE81_RUN.txt ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-python@v5
+        if: steps.gate.outputs.run == 'true'
         with:
           python-version: '3.12'
 
       - name: Install dependencies
+        if: steps.gate.outputs.run == 'true'
         run: |
           python -m pip install --upgrade pip
           python -m pip install pandas requests
 
       - name: Acquire public NSE holdout
+        if: steps.gate.outputs.run == 'true'
         run: python research/tools/PHASE81_NSE_PUBLIC_HOLDOUT.py
 
       - name: Validate output
+        if: steps.gate.outputs.run == 'true'
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -44,14 +56,17 @@ jobs:
           assert (m["rows"] > 0).all(), m
           df = pd.read_csv(combined)
           assert df["trading_symbol"].nunique() == 6, df["trading_symbol"].value_counts()
+          assert df["datetime"].notna().all()
           print(m.to_string(index=False))
           print(f"combined_rows={len(df)}")
+          PY
 
-          - name: Commit holdout
-            run: |
-              git config user.name "github-actions[bot]"
-              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-              rm -f research/triggers/PHASE81_RUN.txt
-              git add research/data/external_holdout research/triggers/PHASE81_RUN.txt
-              git commit -m "data: acquire Phase 81 public NSE futures holdout [skip ci]" || exit 0
-              git push
+      - name: Commit holdout
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f research/triggers/PHASE81_RUN.txt
+          git add research/data/external_holdout research/triggers/PHASE81_RUN.txt
+          git commit -m "data: acquire Phase 81 public NSE futures holdout [skip ci]" || exit 0
+          git push
