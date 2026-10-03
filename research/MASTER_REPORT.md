@@ -92,3 +92,38 @@ The result strengthens the movement/path interpretation but does not validate th
 The next decisive experiment is now operationally defined around six actual NIFTY monthly futures contracts covering October 2025 through March 2026. NSE changed NIFTY index-derivative expiry to Tuesday for contracts expiring from September 1, 2025 onward; the expected monthly expiries are therefore 28-Oct-2025, 25-Nov-2025, 30-Dec-2025, 27-Jan-2026, 24-Feb-2026 and 31-Mar-2026.
 
 The repository now contains a reproducible Upstox expired-futures acquisition tool that resolves the exact contract by expiry, downloads 5-minute contract-specific candles in small windows, preserves OHLCV and OI, and writes a manifest. This phase is acquisition tooling only; no holdout outcome has been viewed or used.
+
+
+## Phase 82 — Independent secondary futures holdout
+
+A public secondary archive containing 4,125 five-minute NIFTY26JANFUT bars across 55 complete sessions was evaluated with all frozen rules. The base event count was 124, with H-M1 n=26 and H-M6 n=24. H-M1 showed a 20-bar return delta of -0.835 ATR and R2 delta of -0.410R versus the frozen control. H-M6 showed -0.757 ATR and -0.338R respectively, with 2R target-first 25.0% versus 35.7% for control.
+
+This is the first contract-level external challenge to the positive Jul-Sep 2026 H-M1/H-M6 result. It is classified as a credible secondary holdout rather than final broker-independent validation because the originating Zerodha account was not independently authenticated.
+
+## Phase 83 — External pressure diagnostic
+
+On the same 26 external H-M1 events, continuous clipping pressure had Spearman correlations of +0.704 with 20-bar return, +0.785 with MFE20 and +0.760 with MAE20. Pressure-only 2R AUC was 0.392. The distinction is important: pressure can identify larger path intensity without identifying better fixed-risk tradeability.
+
+## Phase 84 — External regime-shift diagnosis
+
+The external January H-M1 events were much more directionally extended before the event than 2026 validation H-M1 events. Mean prior-5-bar return was +2.456 ATR versus +0.326 and mean prior-20-bar return +1.684 versus +0.071. Event range/ATR and clipping pressure were slightly lower on average. This suggests the same SALMA transition can occur at materially different lifecycle stages of the price path.
+
+The holdout result therefore strengthens the hypothesis that the useful 2026 behavior was conditional on a compression-to-expansion state, rather than being a universal property of SALMA flips or clipping.
+
+No new prior-return filter is adopted because that interpretation was derived after observing the external holdout.
+
+## Phase 85 — External price provenance
+
+Five complete NIFTY26JANFUT sessions were cross-checked against an independent NSE daily futures archive. Daily open/high/low and the final five-minute price matched exactly on all five sampled dates; daily futures volume was consistent after converting lots by the 65-unit NIFTY lot size. Intraday OI differed from daily end-of-day OI and is therefore not used as a provenance anchor.
+
+## Current research status
+
+The research has now passed the useful in-sample signal-mining boundary. The external evidence currently says:
+- 2026 H-M6 shows a delayed path-persistence pattern;
+- the first secondary out-of-sample contract fails the frozen H-M1/H-M6 trading benchmark;
+- clipping pressure remains related to path intensity but not fixed-2R success;
+- the external contract's H-M1 events occur after substantially greater prior directional movement.
+
+This is a regime-sensitive research result, not a validated universal strategy.
+
+The next decisive evidence remains another genuinely unseen contract-level 5-minute futures dataset. No parameter changes are permitted until such data is available.
