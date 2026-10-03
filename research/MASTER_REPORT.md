@@ -136,3 +136,12 @@ A scheduled, credential-free forward-validation pipeline has been added for the 
 The pipeline refreshes contract-specific 5-minute OHLCV after each weekday session, records frozen H-M1/H-M6/H-M9 signals using only event-time information, and stores mature outcomes separately. It is bounded to the October contract and does not silently roll to November.
 
 The forward phase is observational and does not change any frozen research rule. H-M13 remains future-only and is not used for decisions.
+
+
+## Phase 86 — Prior-extension interaction replication
+
+Prior directional extension was replicated as a diagnostic across the older NIFTY index and 2026 futures validation. The relationship changes sign across datasets, so prior extension alone is not a stable filter. The future-only H-M13 hypothesis therefore requires interaction with current event shock/release intensity.
+
+## Phase 87 — Prospective October 2026 forward capture
+
+A scheduled GitHub Actions pipeline now captures the active October 2026 NIFTY futures contract using the public NSE/OpenChart-compatible charting endpoint. It records frozen H-M1/H-M6/H-M9 signals without using future outcomes, and stores outcomes separately only after they mature. H-M13 is deliberately excluded from trading decisions until its functional form is formally frozen.
