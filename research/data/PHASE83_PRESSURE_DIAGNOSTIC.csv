@@ -1,0 +1,7 @@
+feature,n,statistic,value,notes
+pressure_vs_ret20,26,spearman,0.7035468142951394,H-M1 external Jan contract
+pressure_vs_mfe20,26,spearman,0.7846231559104617,H-M1 external Jan contract
+pressure_vs_mae20,26,spearman,0.7595370376540772,H-M1 external Jan contract
+pressure_2R_auc,26,auc,0.39166666666666666,2R target-first binary within H-M1
+mean_pressure_2R_success,6,mean,0.7442642032923255,events reaching 2R before adverse 1R
+mean_pressure_2R_non_success,20,mean,0.8736697372498912,other H-M1 events
