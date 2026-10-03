@@ -1,0 +1,15 @@
+feature,2026_validation_HM1_mean,jan2026_external_HM1_mean,delta_external_minus_2026
+event_range_atr,1.7405,1.452471,-0.288029
+clip_pressure,0.9251,0.843807,-0.081293
+aligned_clip_count_3,2.2727,2.346154,0.073454
+flip_dist,1.7879,1.807692,0.019792
+priorret1,0.0407,1.118168,1.077468
+priorret3,0.3348,1.703734,1.368934
+priorret5,0.3261,2.456075,2.129975
+priorret10,0.3072,2.162446,1.855246
+priorret20,0.0706,1.683757,1.613157
+priorret5_median,1.0508,2.461247,1.410447
+priorret20_median,-0.3082,1.697539,2.005739
+close_loc20_mean,0.4783,-0.120700,-0.599000
+close_loc20_median,0.3548,0.027829,-0.326971
+atr14_mean,20.2044,18.0,-2.2044
