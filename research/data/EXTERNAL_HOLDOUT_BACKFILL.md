@@ -58,3 +58,12 @@ No strategy conclusion is changed by this source audit alone.
 A current INDstocks API documentation set also exposes expired derivative contract search and expired historical OHLCV endpoints. Expired contracts can be identified by stable trading symbol, and the expired historical endpoint accepts those symbols with start/end timestamps. This is retained as a secondary acquisition route if Upstox access is unavailable.
 
 For the present research gate, Upstox remains preferred because the documented expired-candle response explicitly includes open interest.
+
+
+## Phase 82-85 external holdout status
+
+A public secondary NIFTY26JANFUT five-minute archive has now been added to the research corpus and cross-checked against an independent NSE daily futures archive. The sampled daily OHLC/last-price fields match exactly.
+
+Because the underlying 5-minute archive's Zerodha account was not independently authenticated, it is classified as a credible secondary external price holdout rather than broker-independent validation.
+
+Public searches for comparable 5-minute contract-level archives for NIFTY25OCTFUT, NIFTY25NOVFUT, NIFTY25DECFUT, NIFTY26FEBFUT and NIFTY26MARFUT have not produced a second complete raw archive. Public sources identified for these contracts are mainly daily archives, instrument metadata, or authenticated retrieval examples.
