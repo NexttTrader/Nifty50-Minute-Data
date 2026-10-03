@@ -279,9 +279,17 @@ def main():
         signals_new = signals_new[~signals_new["_key"].isin(existing_keys)].drop(columns=["_key"])
     if not signals_new.empty:
         combined = pd.concat([existing, signals_new], ignore_index=True) if not existing.empty else signals_new
+    else:
+        combined = existing
+    if combined.empty:
+        pd.DataFrame(columns=[
+            "signal_timestamp","trading_symbol","expiry","direction","flip_dist",
+            "clip_count_3","clip_pressure_3","h_m1","h_m6","h_m9",
+            "event_range_atr","atr14","priorret1","priorret3","priorret5",
+            "priorret10","priorret20"
+        ]).to_csv(SIGNAL_PATH, index=False)
+    else:
         combined.sort_values(["signal_timestamp","trading_symbol"]).to_csv(SIGNAL_PATH, index=False)
-    elif not existing.empty:
-        existing.sort_values(["signal_timestamp","trading_symbol"]).to_csv(SIGNAL_PATH, index=False)
 
     all_signals = load_existing(SIGNAL_PATH)
     mature = build_outcomes(df, all_signals)
