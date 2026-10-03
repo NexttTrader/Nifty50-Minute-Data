@@ -163,3 +163,12 @@ Validation H-M6 minus non-H-M1 control mean return deltas were +0.207, +0.377, +
 Day-cluster bootstrap intervals were wide early and more favorable late; the 20-bar difference was +1.712 ATR with a 95% cluster interval of [+0.348,+3.392]. A fixed time-of-day-bin plus breakout-direction regression remained positive at 5, 10 and 20 bars, with H-M6 coefficients +0.683, +0.982 and +1.681 ATR.
 
 Interpretation: the strongest recurring property of H-M6 is delayed favorable path persistence rather than immediate breakout momentum. This remains exploratory; later-horizon sample sizes are smaller because the analysis requires complete same-session horizons.
+
+
+## Phase 83 — Multiple-testing audit
+
+The fixed validation family H-M1/H-M6/H-M9 was evaluated across two endpoints: mean 2R benchmark difference and mean 20-bar signed-return difference. Day-cluster bootstrap probabilities were Holm-adjusted across the six comparisons.
+
+Only H-M6's 20-bar movement result remained below 0.05 after adjustment (adjusted bootstrap probability approximately 0.029). H-M6's 2R result adjusted to approximately 0.230, and H-M1's 20-bar result adjusted to approximately 0.142. H-M9 remains too small and uncertain.
+
+This strengthens the distinction between a delayed movement/persistence signal and a validated executable trading edge. No signal definition or execution rule changed.
