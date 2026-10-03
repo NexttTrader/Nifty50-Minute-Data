@@ -172,3 +172,25 @@ The fixed validation family H-M1/H-M6/H-M9 was evaluated across two endpoints: m
 Only H-M6's 20-bar movement result remained below 0.05 after adjustment (adjusted bootstrap probability approximately 0.029). H-M6's 2R result adjusted to approximately 0.230, and H-M1's 20-bar result adjusted to approximately 0.142. H-M9 remains too small and uncertain.
 
 This strengthens the distinction between a delayed movement/persistence signal and a validated executable trading edge. No signal definition or execution rule changed.
+
+
+## Phase 88 — Event independence and clustering robustness (2026-10-03)
+
+A dependence audit tested whether the frozen H-M6 20-bar movement result is materially created by overlapping event windows or by unequal event frequency across days. The audit used the exact Apr-Sep 2026 futures event universe and the Phase 82 non-H-M1 control.
+
+Validation event spacing was similar across groups: H-M6 median same-day gap 13 bars versus 12 for control; 70.2% of H-M6 events and 78.0% of control events had a prior same-day event within 20 bars. Thus H-M6 is clustered, but not uniquely more clustered than the control.
+
+A chronology-preserving same-session de-overlap test retained only the first event and then required a cooldown of N bars before retaining another event. The H-M6 minus control 20-bar return delta remained positive at every tested cooldown:
+- 0 bars: +1.443 ATR;
+- 5 bars: +1.407 ATR;
+- 10 bars: +1.445 ATR;
+- 20 bars: +1.350 ATR;
+- 30 bars: +1.016 ATR.
+
+The 20-bar cooldown is the key independence stress test because it prevents retained events from sharing the primary 20-bar outcome window within a session. Its day-block 95% interval was approximately [-0.154,+3.125] ATR with bootstrap P(delta<=0) approximately 0.043. At 30 bars the interval widened to approximately [-0.635,+3.102] ATR.
+
+An equal-day-weighted comparison without thinning, restricted to the 33 validation days containing both H-M6 and control events, produced mean daily delta +1.463 ATR, median +0.805 ATR, 66.7% positive days and a 10%-trimmed mean +0.849 ATR. A day-resampled interval was approximately [+0.245,+2.849] ATR.
+
+The audit therefore supports the narrower claim that H-M6's delayed movement association is not explained simply by ordinary event overlap or event frequency. However, aggressive episode collapse materially widens uncertainty, and strict matched-day de-overlap is not an independent confirmation.
+
+No signal, target, stop, horizon, or threshold was changed. H-M6 remains an exploratory movement-persistence hypothesis, not a validated trading rule. The next decisive evidence remains genuinely unseen contract-level futures data and the independent October 2026 forward capture.
