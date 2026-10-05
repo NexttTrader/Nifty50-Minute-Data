@@ -249,3 +249,12 @@ Within the external H-M6 sample:
 The 3-clip > 2-clip fixed-risk ordering is reproduced in discovery, validation and the external January contract. It is still not a validated edge because external 3-clip R2 is only slightly above the external control.
 
 H-M14 is now frozen as a future-only hypothesis: H-M1 plus exactly 3 direction-aligned clipped bars among the prior 3 completed bars. It is recorded prospectively on October 2026 and cannot be evaluated using the already-seen January holdout.
+
+
+## Phase 90 — Prospective forward timestamp integrity audit (2026-10-05)
+
+Found and corrected a timestamp/session-integrity problem in the October forward capture. NSE/OpenChart-compatible returned timestamps were interpreted as UTC although they represent NSE wall-clock values. Five of 90 archived rows were outside the regular 09:15-15:29:59 IST session.
+
+The parser now localizes source values to Asia/Kolkata, converts to UTC, filters the regular session, and rejects source bars more than 10 minutes ahead of the runner clock. The corrected archive contains 85 valid bars (75 on Oct 1, 10 on Oct 5) and zero frozen signals/outcomes existed before correction.
+
+Corrected raw SHA-256: `823af836e4d0eedf7ccfe2d271bc86e5b05d1b12e0489a07c0ce9b0b43683552`. No hypothesis or execution rule changed.
