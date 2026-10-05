@@ -3,6 +3,7 @@ raw_timestamp_parse,PASS,invalid_timestamps=0
 regular_session_only,PASS,rows_outside_session=0
 raw_duplicate_timestamps,PASS,duplicates=0
 ohlc_integrity,PASS,bad_rows=0
-no_future_bars,PASS,max_timestamp=2026-10-05T04:33:59+00:00
-frozen_signal_file,PASS,No prospective signals recorded.
-outcome_file,PASS,No mature outcomes recorded.
+no_future_bars,PASS,max_timestamp=2026-10-05T09:59:58+00:00 now=2026-10-05T11:16:43.752081+00:00
+signal_key_uniqueness,PASS,duplicate_signal_keys=0
+signal_schema,PASS,missing=[]
+outcome_key_uniqueness,PASS,duplicate_outcome_keys=0
