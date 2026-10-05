@@ -101,11 +101,31 @@ def fetch_history(session: requests.Session, info: dict) -> pd.DataFrame:
     if missing:
         raise RuntimeError(f"Historical schema missing {missing}; columns={list(df.columns)}")
     df = df[required].copy()
-    df["datetime"] = pd.to_datetime(df["datetime"], unit="ms", utc=True)
+
+    # NSE charting returns epoch values representing NSE wall-clock timestamps.
+    # Interpret them first as Asia/Kolkata local time, then convert to true UTC.
+    source_local = pd.to_datetime(df["datetime"], unit="ms")
+    source_local = source_local.dt.tz_localize("Asia/Kolkata")
+    df["datetime"] = source_local.dt.tz_convert("UTC")
+
     for c in ["open","high","low","close","volume"]:
         df[c] = pd.to_numeric(df[c], errors="coerce")
     df = df.dropna(subset=["datetime","open","high","low","close"]).drop_duplicates("datetime")
     df = df.sort_values("datetime")
+
+    # Keep only the regular NSE futures session. The endpoint can also return
+    # pre-open/after-close reference rows and partial bars.
+    local_times = df["datetime"].dt.tz_convert("Asia/Kolkata")
+    session_mask = (local_times.dt.time >= pd.Timestamp("09:15:00").time()) & (local_times.dt.time <= pd.Timestamp("15:29:59").time())
+    df = df.loc[session_mask].copy()
+
+    # Guard against source clock/timezone mistakes producing future bars.
+    now_utc = pd.Timestamp.now(tz="UTC")
+    if not df.empty and df["datetime"].max() > now_utc + pd.Timedelta(minutes=10):
+        raise RuntimeError(
+            f"Source timestamp is ahead of runner clock: max={df['datetime'].max().isoformat()} now={now_utc.isoformat()}"
+        )
+
     df["trading_symbol"] = info["symbol"]
     df["scripcode"] = info["scripcode"]
     df["expiry"] = EXPECTED_EXPIRY
