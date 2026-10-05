@@ -207,3 +207,16 @@ Within external H-M6, 2-clip events had mean R2 -0.372R and 15.4% 2R target-firs
 Conclusion: >=2 clipping is not a stable external selector. The exact-3 branch is a more coherent state candidate, but it is not a validated edge.
 
 A future-only H-M14 hypothesis was therefore frozen as H-M1 + exactly 3 direction-aligned clipped bars among the previous 3 completed bars. H-M14 is recorded prospectively on the October 2026 stream only and does not modify H-M6.
+
+
+## Phase 90 — Prospective forward timestamp integrity audit (2026-10-05)
+
+An audit of the October 2026 forward capture found that the public NSE/OpenChart-compatible endpoint's returned millisecond timestamps were being interpreted directly as UTC even though the values correspond to NSE wall-clock timestamps. The first archive also contained reference/partial rows outside the regular session.
+
+The parser was corrected to interpret source timestamps in Asia/Kolkata, convert them to true UTC, enforce the regular 09:15-15:29:59 IST session, and reject source bars more than 10 minutes ahead of the runner clock.
+
+The existing 90-row raw archive contained 5 non-session rows (2 pre-open and 3 post-close/reference), leaving 85 valid regular-session bars: 75 on 2026-10-01 and 10 on 2026-10-05. No H-M1/H-M6/H-M9/H-M14 signals or outcomes had been recorded before the correction, so no reported forward performance result was contaminated.
+
+Corrected October raw SHA-256: `823af836e4d0eedf7ccfe2d271bc86e5b05d1b12e0489a07c0ce9b0b43683552`.
+
+Governance: no historical hypothesis was retuned; H-M1/H-M6/H-M9/H-M14 remain frozen.
