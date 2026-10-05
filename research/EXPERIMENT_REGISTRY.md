@@ -258,3 +258,16 @@ Found and corrected a timestamp/session-integrity problem in the October forward
 The parser now localizes source values to Asia/Kolkata, converts to UTC, filters the regular session, and rejects source bars more than 10 minutes ahead of the runner clock. The corrected archive contains 85 valid bars (75 on Oct 1, 10 on Oct 5) and zero frozen signals/outcomes existed before correction.
 
 Corrected raw SHA-256: `823af836e4d0eedf7ccfe2d271bc86e5b05d1b12e0489a07c0ce9b0b43683552`. No hypothesis or execution rule changed.
+
+## Phase 91 — Prospective frozen-signal evaluation gate (2026-10-05)
+
+Added the permanent prospective evaluator and wired it into the October forward-capture workflow.
+
+Current checkpoint:
+- corrected regular-session bars: 85;
+- frozen signals: 0;
+- mature outcomes: 0.
+
+The evaluator uses predeclared 20-bar movement and fixed 1.5R/2R/3R stop-first endpoints, keeps immature observations separate, and performs session/timestamp/OHLC/duplicate/future-data integrity checks.
+
+No historical hypothesis was changed and no October outcome has been used for tuning. Local py_compile verification was not possible because the execution environment cannot resolve raw.githubusercontent.com; this is recorded rather than inferred away.
