@@ -1,1 +1,1 @@
-signal_timestamp,trading_symbol,expiry,direction,flip_dist,clip_count_3,clip_pressure_3,h_m1,h_m6,h_m9,event_range_atr,atr14,priorret1,priorret3,priorret5,priorret10,priorret20
+signal_timestamp,trading_symbol,expiry,direction,flip_dist,clip_count_3,clip_pressure_3,h_m1,h_m6,h_m9,h_m14,event_range_atr,atr14,priorret1,priorret3,priorret5,priorret10,priorret20
