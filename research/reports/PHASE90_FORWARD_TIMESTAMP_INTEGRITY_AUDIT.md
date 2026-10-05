@@ -32,7 +32,9 @@ After correction, 85 regular-session bars remain:
 
 No frozen H-M1/H-M6/H-M9/H-M14 signal rows existed and no outcomes existed before this correction. Therefore the timestamp bug did not contaminate any reported forward performance result.
 
-The October forward dataset is now the canonical prospective stream. Previous pre-fix raw SHA: `551fca594a6eea6a202dfa5ab68707bd143bf9cb3f94f519df01d261d261f8c2085d`.
+The October forward dataset is now the canonical prospective stream. Previous pre-fix raw SHA: `551fca594a6eea6a202dfa5ab68707bd143bf9cb3f94f519df01d261f8c2085d`.
+
+Corrected raw SHA-256: `823af836e4d0eedf7ccfe2d271bc86e5b05d1b12e0489a07c0ce9b0b43683552`.
 
 ## Governance
 
