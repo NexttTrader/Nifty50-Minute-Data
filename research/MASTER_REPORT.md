@@ -194,3 +194,16 @@ An equal-day-weighted comparison without thinning, restricted to the 33 validati
 The audit therefore supports the narrower claim that H-M6's delayed movement association is not explained simply by ordinary event overlap or event frequency. However, aggressive episode collapse materially widens uncertainty, and strict matched-day de-overlap is not an independent confirmation.
 
 No signal, target, stop, horizon, or threshold was changed. H-M6 remains an exploratory movement-persistence hypothesis, not a validated trading rule. The next decisive evidence remains genuinely unseen contract-level futures data and the independent October 2026 forward capture.
+
+
+## Phase 89 — Cross-dataset H-M7 selectivity and future-only H-M14 freeze (2026-10-05)
+
+The January external NIFTY26JANFUT holdout was decomposed using the already-defined H-M7 clipping-count interaction.
+
+H-M6 (>=2 aligned clips) qualified 24 of 26 H-M1 events (92.3%) on the external contract, versus 54 of 66 (81.8%) in the frozen Jul-Sep 2026 validation set. Its external 20-bar return remained negative (-0.257 ATR versus +0.501 ATR for control). The failure was present in both directions.
+
+Within external H-M6, 2-clip events had mean R2 -0.372R and 15.4% 2R target-first, while 3-clip events had mean R2 +0.295R and 36.4% target-first. The 3-clip > 2-clip ordering was already present in discovery and validation and is reproduced externally, but the external 3-clip mean R2 is only marginally above the external control (+0.272R).
+
+Conclusion: >=2 clipping is not a stable external selector. The exact-3 branch is a more coherent state candidate, but it is not a validated edge.
+
+A future-only H-M14 hypothesis was therefore frozen as H-M1 + exactly 3 direction-aligned clipped bars among the previous 3 completed bars. H-M14 is recorded prospectively on the October 2026 stream only and does not modify H-M6.
