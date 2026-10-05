@@ -1,0 +1,2 @@
+dataset,old_sha256,new_rows,removed_rows,removed_reason,old_capture_manifest_time,correction
+PHASE87_NIFTY26OCTFUT_5m.csv,551fca594a6eea6a202dfa5ab68707bd143bf9cb3f94f519df01d261f8c2085d,85,5,2 pre-open + 3 post-close/reference rows,2026-10-05T04:39:10.656642+00:00,NSE wall-clock timestamps were relabeled to true UTC and the regular 09:15-15:29:59 Asia/Kolkata session was enforced
