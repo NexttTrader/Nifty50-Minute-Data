@@ -236,3 +236,16 @@ Audited dependence in the frozen 2026 validation event sample.
 
 Conclusion: the 2026 movement-persistence point estimate survives moderate event de-overlapping, but strict episode-level independence produces substantially wider uncertainty. No hypothesis or execution parameter changed.
 
+
+
+## Phase 89 — Cross-dataset H-M7 selectivity and future-only H-M14 freeze (2026-10-05)
+
+The external January contract shows H-M6 qualifying 92.3% of H-M1 events, compared with 81.8% in 2026 validation, so the >=2 threshold loses selectivity out of sample.
+
+Within the external H-M6 sample:
+- 2 clips: n=13, mean R2 -0.372R, 2R target-first 15.4%.
+- 3 clips: n=11, mean R2 +0.295R, 2R target-first 36.4%.
+
+The 3-clip > 2-clip fixed-risk ordering is reproduced in discovery, validation and the external January contract. It is still not a validated edge because external 3-clip R2 is only slightly above the external control.
+
+H-M14 is now frozen as a future-only hypothesis: H-M1 plus exactly 3 direction-aligned clipped bars among the prior 3 completed bars. It is recorded prospectively on October 2026 and cannot be evaluated using the already-seen January holdout.
