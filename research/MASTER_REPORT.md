@@ -220,3 +220,11 @@ The existing 90-row raw archive contained 5 non-session rows (2 pre-open and 3 p
 Corrected October raw SHA-256: `823af836e4d0eedf7ccfe2d271bc86e5b05d1b12e0489a07c0ce9b0b43683552`.
 
 Governance: no historical hypothesis was retuned; H-M1/H-M6/H-M9/H-M14 remain frozen.
+
+## Phase 91 — Prospective frozen-signal evaluation gate (2026-10-05)
+
+Added a dedicated evaluator for the October 2026 forward stream. It reports only predeclared endpoints for frozen H-M1/H-M6/H-M9 and future-only H-M14, reconstructs fixed 1.5R/2R/3R stop-first outcomes, excludes immature 20-bar observations, and performs data-integrity checks before reporting any forward result.
+
+Current corrected October stream state at the Phase 91 checkpoint: 85 regular-session 5-minute bars (75 on Oct 1 and 10 on Oct 5 through 10:03:59 IST), zero prospective frozen signals, zero mature outcomes. Therefore no forward performance inference is made.
+
+The evaluator is wired into the Phase 87 forward workflow and a fresh workflow-trigger commit was recorded. The repository will continue to treat October observations as prospective and immutable; no historical parameter may be changed from this stream. A local bytecode syntax test could not be completed in this environment because the container cannot resolve raw.githubusercontent.com; no claim of that test is made.
