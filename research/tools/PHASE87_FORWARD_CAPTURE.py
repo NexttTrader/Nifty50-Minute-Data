@@ -206,6 +206,7 @@ def build_signals(df: pd.DataFrame) -> pd.DataFrame:
             "h_m1": True,
             "h_m6": cc >= 2,
             "h_m9": (cc == 3 and dist == 2),
+            "h_m14": (cc == 3),
             "event_range_atr": rng.iloc[i] / atr.iloc[i],
             "atr14": atr.iloc[i],
             **prior,
@@ -284,7 +285,7 @@ def main():
     if combined.empty:
         pd.DataFrame(columns=[
             "signal_timestamp","trading_symbol","expiry","direction","flip_dist",
-            "clip_count_3","clip_pressure_3","h_m1","h_m6","h_m9",
+            "clip_count_3","clip_pressure_3","h_m1","h_m6","h_m9","h_m14",
             "event_range_atr","atr14","priorret1","priorret3","priorret5",
             "priorret10","priorret20"
         ]).to_csv(SIGNAL_PATH, index=False)
