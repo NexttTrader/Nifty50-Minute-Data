@@ -195,7 +195,6 @@ def main():
         if paths.empty:
             g = paths
         else:
-            mask = paths[label.lower().replace("-", "_")] if False else None
             col = {"H-M1": "h_m1", "H-M6": "h_m6", "H-M9": "h_m9", "H-M14": "h_m14"}[label]
             g = paths[paths[col].astype(bool)]
 
