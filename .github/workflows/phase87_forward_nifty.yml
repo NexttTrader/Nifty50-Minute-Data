@@ -7,6 +7,7 @@ on:
     paths:
       - research/triggers/PHASE87_RUN.txt
       - research/tools/PHASE87_FORWARD_CAPTURE.py
+      - research/tools/PHASE91_PROSPECTIVE_EVALUATOR.py
 
 permissions:
   contents: write
@@ -30,12 +31,15 @@ jobs:
       - name: Capture forward data
         run: python research/tools/PHASE87_FORWARD_CAPTURE.py
 
+      - name: Run prospective frozen evaluator
+        run: python research/tools/PHASE91_PROSPECTIVE_EVALUATOR.py
+
       - name: Commit all generated artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/data/forward
-          git commit -m "data: save Phase 87 forward NIFTY futures capture [skip ci]" || exit 0
+          git add research/data/forward research/reports/PHASE91_PROSPECTIVE_EVALUATION.md
+          git commit -m "data: save Phase 87 forward capture and Phase 91 evaluation [skip ci]" || exit 0
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main
