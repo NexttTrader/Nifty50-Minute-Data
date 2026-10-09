@@ -1,2 +1,2 @@
 provider,trading_symbol,scripcode,expected_expiry,rows,first_timestamp,last_timestamp,signal_rows_total,outcome_rows_total,captured_at_utc,raw_sha256
-NSE charting API via OpenChart-compatible endpoint,NIFTY26OCTFUT,48704,2026-10-27,375,2026-10-01T03:49:59+00:00,2026-10-08T09:59:58+00:00,1,1,2026-10-08T11:16:28.070180+00:00,b2a2e97fe75de7f1d76cac0f1a8ea502b819083c8fb91801f110d8c91934c5e7
+NSE charting API via OpenChart-compatible endpoint,NIFTY26OCTFUT,48704,2026-10-27,450,2026-10-01T03:49:59+00:00,2026-10-09T09:59:58+00:00,1,1,2026-10-09T11:16:16.817435+00:00,701e34c06b07ebdaa3a2e5ae6e75ef74d9d041a47c45100de9d44eb0608b748f
