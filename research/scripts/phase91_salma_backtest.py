@@ -80,15 +80,15 @@ ledger = pd.DataFrame(out).sort_values(["datetime", "tradingsymbol"]).reset_inde
 # Audit all numerical outcomes against the frozen audited source table.
 canon = events.set_index(["tradingsymbol", "datetime"])
 checks = []
-for r in ledger.itertuples(index=False):
-    c = canon.loc[(r.tradingsymbol, r.datetime)]
+for _, r in ledger.iterrows():
+    c = canon.loc[(r["tradingsymbol"], r["datetime"])]
     for target, col in [(1.5, "R1.5"), (2.0, "R2.0"), (3.0, "R3.0")]:
-        checks.append(abs(getattr(r, f"R{target:g}") - float(c[col])))
+        checks.append(abs(float(r[f"R{target:g}"]) - float(c[col])))
     for new, old in [("ret20atr", "ret20atr"), ("mfe20atr", "mfe20atr"), ("mae20atr", "mae20atr")]:
-        checks.append(abs(getattr(r, new) - float(c[old])))
+        checks.append(abs(float(r[new]) - float(c[old])))
     for new, old in [("out2", "out2.0"), ("out3", "out3.0")]:
-        if getattr(r, new) != c[old]:
-            raise AssertionError(f"Barrier status mismatch: {r.tradingsymbol} {r.datetime} {new}")
+        if r[new] != c[old]:
+            raise AssertionError(f"Barrier status mismatch: {r['tradingsymbol']} {r['datetime']} {new}")
 if max(checks) > 1e-8:
     raise AssertionError(f"Outcome audit failed; max numeric difference={max(checks)}")
 ledger["group"] = np.where(ledger.h_m6, "H-M6",
