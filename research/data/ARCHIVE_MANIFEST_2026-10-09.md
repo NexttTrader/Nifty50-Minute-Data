@@ -43,3 +43,14 @@ This archive includes the Phase 85, 86, 87 and 88/89 reports plus the Phase 90 O
 - Frozen holdout definitions are not changed from October outcomes.
 - Contract identity is preserved.
 - H-M6 remains a research tag, not a promoted live-trading rule.
+
+## Phase 91 sequential backtest — added 2026-10-11
+
+- Report: research/reports/PHASE91_SEQUENTIAL_BACKTEST_2026-10-11.md
+- Frozen-split execution results: research/data/forward/SALMA_BACKTEST_PHASE91_EXECUTION_SUMMARY.csv
+- H-M6 monthly 2R results: research/data/forward/SALMA_BACKTEST_PHASE91_HM6_MONTHLY_2R.csv
+- October forward holdout summary (kept separate): research/data/forward/SALMA_BACKTEST_PHASE91_OCT_FORWARD_SUMMARY.csv
+- Reproducible source script: research/scripts/phase91_salma_backtest.py
+
+The independent outcome engine matched all 513 April–September frozen event outcomes to floating-point precision. H-M6 remains a research candidate only, not a live-trading rule. October capture remains incomplete and is not pooled into July–September validation.
+
