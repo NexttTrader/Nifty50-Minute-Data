@@ -1,14 +1,14 @@
 # Phase 91 — Prospective Frozen-Signal Evaluation
-Date: 2026-10-12
+Date: 2026-10-13
 
 ## Purpose
 Evaluate only frozen forward signals using predeclared endpoints. No October outcome is used to modify any signal.
 
 ## Forward state
-Rows=525, last_timestamp=2026-10-12T09:59:59+00:00, signals=1, outcomes=1.
-Raw SHA-256: 54ecbbe525e8c0514aafdfb458c8e47726cc9a60e24975f43a2f90b12de3a4b4
-Signal-file SHA-256: 316858706b7338e34d98d026d26bd1d0f31ae4af428e4daa76b22205f657f6e5
-Outcome-file SHA-256: 2a60d94ba23ebdcc4e61899f985ebab355aad40556b63b8080aa5fc25d1848d4
+Rows=600, last_timestamp=2026-10-13T09:59:58+00:00, signals=2, outcomes=2.
+Raw SHA-256: 46868287510aab8f9d8d0a58a95e8c7876cea85d326970db8635375fea39a51d
+Signal-file SHA-256: 4adba4203898a16477d1bb100646d659e4e61ed5e9731947fea1c5e88519785d
+Outcome-file SHA-256: b56ad68587742f3617a437c4527e885cb9ef2202c383b652329311f6a495f3d2
 
 ## Integrity
 See research/data/forward/PHASE91_DATA_INTEGRITY.csv.
@@ -16,10 +16,10 @@ See research/data/forward/PHASE91_DATA_INTEGRITY.csv.
 ## Results
 | Hypothesis | Signals | Mature 20-bar | Mean ret20 ATR | Mean R2 | 2R first | Mean R3 | 3R first |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| H-M1 | 1 | 1 | +1.297 | +2.000 | 100.0% | +1.297 | 0.0% |
-| H-M6 | 0 | 0 |  |  |  |  |  |
+| H-M1 | 2 | 2 | +0.089 | +0.500 | 50.0% | +0.148 | 0.0% |
+| H-M6 | 1 | 1 | -1.118 | -1.000 | 0.0% | -1.000 | 0.0% |
 | H-M9 | 0 | 0 |  |  |  |  |  |
-| H-M14 | 0 | 0 |  |  |  |  |  |
+| H-M14 | 1 | 1 | -1.118 | -1.000 | 0.0% | -1.000 | 0.0% |
 
 ## Governance
 - H-M1, H-M6, H-M9 and H-M14 definitions are unchanged.
