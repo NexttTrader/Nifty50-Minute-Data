@@ -1,12 +1,12 @@
 # Phase 91 — Prospective Frozen-Signal Evaluation
-Date: 2026-10-26
+Date: 2026-10-27
 
 ## Purpose
 Evaluate only frozen forward signals using predeclared endpoints. No October outcome is used to modify any signal.
 
 ## Forward state
-Rows=1200, last_timestamp=2026-10-26T09:59:59+00:00, signals=5, outcomes=5.
-Raw SHA-256: 59f535917f2bda0b9b6a08b3c68910d635b89ce9173151cdd74f9ba26fc39229
+Rows=1275, last_timestamp=2026-10-27T09:59:58+00:00, signals=5, outcomes=5.
+Raw SHA-256: 50fb24924dc6f92d3eb9416636fb1c7eb5ccd8d77ef6a32889eb13f623acd0f4
 Signal-file SHA-256: 59432c8a170eb6c7dfd4bd6db91d5ab4f5d3119066270213ec1b75bdf77112f4
 Outcome-file SHA-256: 5df2378e37cf6846619743b78a8599b94cee71f02c5be367c16875cc70d4b201
 
