@@ -1,5 +1,5 @@
 # Phase 91 — Prospective Frozen-Signal Evaluation
-Date: 2026-10-27
+Date: 2026-10-28
 
 ## Purpose
 Evaluate only frozen forward signals using predeclared endpoints. No October outcome is used to modify any signal.
